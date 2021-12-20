@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/filter.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapRegistr">
+        <div class="registr">
+            <div class="wrapIn hidden">
+                <div class="wrapper_In">
+                    <div class="box" action="index.html" method="post">
+                        <h1>Sign In</h1>
+                        <input class="username" type="text" name="" placeholder="Username">
+                        <input class="userpass" type="password" name="" placeholder="Password">
+                        <input type="button" class="signInButt" name="" value="Login">
+                        <p class="outputIn"></p>
+                        <p class="sign_in">Sign Up</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapUp">
+                <div class="wrapper_Up">
+                    <div class="box" action="index.html" method="post">
+                        <h1>Sign Up</h1>
+                        <input class="firstname" type="text" name="" placeholder="First_name">
+                        <input class="surname" type="text" name="" placeholder="Last_name">
+                        <input class="login" type="text" name="" placeholder="Login">
+                        <input class="password" type="password" name="" placeholder="Password">
+                        <input class="signUpButt" type="button" name="" value="Login">
+                        <p class="outputUp"></p>
+                        <p class="sign_up">Sign In</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="filter hidden">
+        <div class="filterPopup">
+            <div class="containerFilter">
+                <div class="headerFilter">EXPLORE OUR TITLES</div>
+                <div class="filterTitle">
+                    <div class="filterTitles">FILTER TITLES</div>
+                <!-- <div class="selectGenre">
+                  <div class="genre">Genre</div>
+                    <input type="checkbox" id="action"/><label for="action">Action</label>
+                    <input type="checkbox" id="comedy"/><label for="comedy">Comedy</label>
+                    <input type="checkbox" id="drama"/><label for="drama">Drama</label>
+                    <input type="checkbox" id="family"/><label for="family">Family</label>
+                    <input type="checkbox" id="fantasy"/><label for="fantasy">Fantasy</label>
+                    <input type="checkbox" id="horror"/><label for="horror">Horror</label>
+                    <input type="checkbox" id="adult"/><label for="adult">Adult</label>
+                </div> -->
+
+                    <nav id="nav-block">Сhoose genres:
+                        <ul class="genres">
+                            <li data-f="Action" id="1" class="filmsGenres" data-value="1">Action</li>
+                            <li data-f="Comedy" id="4" class="filmsGenres" data-value="4">Comedy</li>
+                            <li data-f="Drama" id="7" class="filmsGenres" data-value="7">Drama</li>
+                            <li data-f="Family" id="12" class="filmsGenres" data-value="8">Family</li>
+                            <li data-f="Fantasy" id="9" class="filmsGenres" data-value="9">Fantasy</li>
+                            <li data-f="Horror" id="3" class="filmsGenres" data-value="11">Horror</li>
+                        </ul>
+                    </nav>
+
+
+                    <div class="selectRange">
+                        <div class="doubleRange">DoubleRange</div>
+                        <div class="doubleRange">DoubleRange</div>
+                    </div>
+                    <div class="selectOther">
+                        <div class="releaseData">
+                            <label for="startData">Release data first</label>
+                            <input type="date" id="startData" value="2000-01-01" min="1900-01-01" max="2022-12-31">
+                            <label for="endData">Release data last</label>
+                            <input type="date" id="endData" value="2021-12-03" min="1900-01-01" max="2022-12-31">
+                        </div>
+                        <label for="filmId">Film By Id</label>
+                        <input type="number" id="filmId" min="1" max="9999">
+
+                        <div class="languageSelect">Language</div>
+                        <input id="selectLanguage" list="language">
+                        <datalist id="language">
+                            <option value="en">
+                            <option value="ru">
+                            <option value="ko">
+                            <option value="it">
+                        </datalist>
+                    </div>
+                </div>
+                <div class="blockBtnFilter">
+                    <button class="btnFilter">Filter</button>
+                    <button class="btnResetSettings">Reset settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <main>
+        <div class="container">
+            <nav class="navigation">
+                <div class="logo">Logo</div>
+                <div class="navigationRight hidden">
+                    <div class="home">HOME</div>
+                    <div class="second">SECOND</div>
+                    <div class="signOut">SIGN OUT</div>
+                </div>
+            </nav>
+            <div class="filmsArea hidden">
+                <div class="films">
+                    <div class="header">
+                        <h2>FILMS</h2>
+                    </div>
+                        <button class="btnFilterFilms">Filter</button>
+                    <div class="wrapperPosButt">
+                        <div class="buttPos">
+                        <div href="#" class="btnRight"><img class="imgBtnRight" src="./image/arrow_left.png" alt="Next"></div>
+                            <div class="cartFilms">
+                            </div>
+                        <div href="#" class="btnLeft"><img class="imgBtnLeft" src="./image/arrow_right.png" alt="Next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="contacts">
+            <div class="contactUs"></div>
+            <div class="developers">
+                <div class="irina"></div>
+                <div class="roman"></div>
+                <div class="maxim"></div>
+                <div class="olga"></div>
+                <div class="vladislav"></div>
+            </div>
+        </div>
+        <div class="lodoDevEducation"></div>
+    </footer>
+</body>
+<script src="../src/script/dom.js"></script>
+<script src="../src/script/constans.js"></script>
+<script src="../src/script/Authorization.js"></script>
+<script src="../src/script/showMovie.js"></script>
+<script src="../src/script/filters.js"></script>
+<script src="../src/script/showDescription.js"></script>
+
+
+</html>

@@ -1,0 +1,266 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  padding: 0;
+  margin: 0;
+  color: bisque;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+
+.container {
+  background-image: url(./image/bg.jpg);
+  background: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 70px;
+  background-color: black;
+}
+
+.navigationRight {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo,
+.home,
+.second,
+.signOut {
+  margin: 30px 15px 10px 15px;
+}
+
+.films {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+}
+
+.btnFilterFilms {
+  margin-left: 30px;
+  margin-bottom: 20px;
+  justify-content: start;
+  background-color: #ff5f05;
+  border-radius: 0px;
+  border: 0px;
+  width: 150px;
+  height: 30px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cartFilms {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.cartFilm:hover .descriptionWrapper{
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.cartFilm {
+  width: calc(100% / 5);
+  background-color: #fff;
+  position: relative;
+  margin: 0 20px;
+  height: 330px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.poster {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    z-index: 1;
+    /* background-size: cover; */
+}
+
+
+.hiddenBlock {
+  opacity: 0;
+  height: 300px;
+  transition: all 0.4s ease-out;
+}
+
+.hiddenBlock:hover {
+  opacity: 0.8;
+  background-color: black;
+}
+
+.scrollPoint {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.registr {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.527);
+}
+
+.outputUp {
+  color: white;
+  display: inline-block;
+  font-size: 13px;
+  margin: 0;
+  width: 300px;
+}
+.outputIn {
+  color: white;
+  display: inline-block;
+  font-size: 13px;
+  margin: 0;
+  width: 300px;
+}
+.wrapper_In {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 auto;
+}
+.wrapper_Up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 auto;
+}
+.box h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.box {
+  border-radius: 10px;
+  width: 300px;
+  padding: 0 40px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #191919;
+  text-align: center;
+}
+
+.box input[type='text'],
+.box input[type='password'] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+.box input[type='text']:focus,
+.box input[type='password']:focus {
+  width: 280px;
+  border-color: #2ecc71;
+}
+
+.box input[type='button'] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.box input[type='button']:hover {
+  background: #2ecc71;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.sign_up {
+  cursor: pointer;
+}
+.sign_in {
+  cursor: pointer;
+}
+.signOut {
+  cursor: pointer;
+}
+.wrapperPosButt{
+  margin-top: 7%;
+}
+.buttPos{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.wrapCard{
+  width: 200px;
+}
+.imgBtnLeft{
+  cursor: pointer;
+  width: 60px;
+  margin-left: 20px;
+}
+.imgBtnLeft:active{
+  transform: scale(0.9);
+}
+.imgBtnRight{
+  margin-right: 20px;
+  cursor: pointer;
+  width: 60px;
+}
+.imgBtnRight:active{
+  transform: scale(0.9);
+}
+
+.descriptionWrapper {
+  position: absolute;
+  transition: 0.3s;
+  opacity: 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5)
+};
+
+
+/* .descriptionWrapperShow {
+  transform: translate(0, 0px);
+  opacity: 1;
+  background-color: #19191936;
+  color: #fff;
+} */
