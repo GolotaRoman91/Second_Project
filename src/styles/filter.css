@@ -1,37 +1,63 @@
 .filter {
-  width: 100%;
+  position: absolute;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: rgba(237, 237, 237, 0.89);
+  background-color: rgba(3, 2, 2, 0.698);
 }
 
 .filterPopup {
-  position: absolute;
+  position: relative;
   z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  color: #000;
-  background-color: #000;
-  opacity: 0.95;
-  margin-top: 134px;
 }
 
 .containerFilter {
   background-color: #2a2d34;
   color: #fff;
-  height: 400px;
+  height: 450px;
+  width: 600px;
+}
+
+.headerFilter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.titleFiltersHeader {
+  margin: 5px 5px 5px 5px;
+  font-size: 22px;
+}
+
+.btnResetSettings {
+  margin: 10px 5px 5px 5px;
+  width: 100px;
+  height: 20px;
+  background-color: #ff5f05;
+  border-radius: 1px;
+  color: #ffffff;
+  border: none;
+}
+
+.btnResetSettings:hover {
+  cursor: pointer;
+  background-color: #b44200;
 }
 
 .filterTitles {
-  margin-bottom: 25px;
+  margin: 5px 0px 25px 5px;
 }
 
-.selectGenre {
-  margin-bottom: 25px;
+#nav-block {
+  margin: 5px 0px 25px 5px;
 }
+
 .hidden {
   display: none;
 }
@@ -46,26 +72,20 @@
   color: #ffaa00;
 }
 
-.selectRange {
+.selectOther {
+  margin: 5px 0px 25px 5px;
+}
+
+.releaseData {
   display: flex;
   flex-direction: row;
-}
-
-.doubleRange {
-  width: 250px;
-  height: 50px;
-  border: 1px solid #fff;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-
-.selectOther {
-  margin-right: 20px;
+  justify-content: space-around;
+  margin: 5px 0px 35px 0px;
 }
 
 #startData,
 #endData {
-  width: 150px;
+  width: 130px;
 }
 
 #filmId,
@@ -84,7 +104,7 @@
 }
 
 .blockBtnFilter {
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
 }
@@ -104,8 +124,3 @@
   background-color: #024c90;
   cursor: pointer;
 }
-
-
-
-
-
