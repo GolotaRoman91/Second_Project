@@ -28,7 +28,7 @@ export const domElement = {
     btnResetSettings: document.querySelector('.btnResetSettings') as HTMLElement,
 };
 
-export let variable = {
+export const variable = {
     htmlElems: [],
     currentPage: 1,
     numbersPage: 0,
@@ -39,7 +39,7 @@ export let variable = {
     limit: 5
 };
 
-export let filterData = {
+export const filterData = {
     genre_ids: [],
     id: null,
     release_date: null,

@@ -14,7 +14,7 @@ async function sendRequest(method: string, url: string, body: bodySignUp) {
         headers: headers
     });
     return response.json();
-};
+}
 export async function modal() {
     showMessage();
     async function showMessage() {
@@ -31,26 +31,31 @@ export async function modal() {
 }
 async function checkResponse(data: any, bodySignUp: bodySignUp) {
     switch (true) {
-        case (data.message === "Registration successful"): {
-            DOM.wrapUp.classList.add("hidden"),
-                DOM.wrapIn.classList.remove("hidden")
-        }
-        case (data.message === `User with login ${bodySignUp.login} already exist`): {
-            console.log(data.message)
-            DOM.outputUp.innerHTML = data.message;
-        }
-        case (data.password): {
-            DOM.outputUp.innerHTML = data.password;
-        }
-        case (data.first_name): {
-            DOM.outputUp.innerHTML = data.first_name;
-        }
-        case (data.last_name): {
-            DOM.outputUp.innerHTML = data.last_name;
-        }
-        default: {
-            DOM.outputUp.innerHTML = "Invalid data";
-        }
+    case (data.message === "Registration successful"): {
+        DOM.wrapUp.classList.add("hidden"),
+        DOM.wrapIn.classList.remove("hidden")
+        break;
+    }
+    case (data.message === `User with login ${bodySignUp.login} already exist`): {
+        console.log(data.message)
+        DOM.outputUp.innerHTML = data.message;
+        break;
+    }
+    case (data.password): {
+        DOM.outputUp.innerHTML = data.password;
+        break;
+    }
+    case (data.first_name): {
+        DOM.outputUp.innerHTML = data.first_name;
+        break;
+    }
+    case (data.last_name): {
+        DOM.outputUp.innerHTML = data.last_name;
+        break;
+    }
+    default: {
+        DOM.outputUp.innerHTML = "Invalid data";
+    }
     }
     // if (data.message === "Registration successful") {
     //     DOM.outputUp.innerHTML = data.message,
@@ -78,7 +83,7 @@ function checkToken() {
 
     }
 
-};
+}
 async function sendRequestSignIn(method: string, url: string, body: bodySignIn) {
     try {
         const headers = {
@@ -111,16 +116,16 @@ export async function signIn() {
         localStorage.setItem('token', JSON.stringify(result))
     }
     checkToken()
-};
+}
 export function toSignUp() {
     DOM.wrapIn.classList.remove("hidden")
     DOM.wrapUp.classList.add("hidden")
-};
+}
 export function toSignIn() {
     DOM.wrapIn.classList.add("hidden")
     DOM.wrapUp.classList.remove("hidden")
-};
+}
 export function signOut() {
     localStorage.removeItem('token');
     checkToken();
-};
+}

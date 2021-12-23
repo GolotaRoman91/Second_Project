@@ -27,12 +27,13 @@ export function creatFirstPage(movies, skip) {
             }
         })
     } else if (skip) {
-        for (let i = skip; i < (skip + 5); i++) {
-            const imageSrc = `${constants.URLIMG}${movies[i].backdrop_path}`
+        const skipArr = movies.slice(skip, skip + 5)
+        skipArr.forEach(elem => {
+            const imageSrc = `${constants.URLIMG}${elem.backdrop_path}`
             console.log('imageSrc: ', imageSrc)
-            variable.htmlElems.push(constants.URLIMG + movies[i]?.backdrop_path);
-            domElement.movieContainer.innerHTML += createPost(movies[i], imageSrc);
-        }
+            variable.htmlElems.push(constants.URLIMG + elem?.backdrop_path);
+            domElement.movieContainer.innerHTML += createPost(elem, imageSrc);
+        });
     }
 }
 
