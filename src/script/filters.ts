@@ -1,8 +1,15 @@
-domElement.btnFilterFilms.addEventListener('click', (event) => {
-    domElement.containerFilter.style.display = 'block';
-})
+import { DOM } from './dom'
+import { constants } from "./constans";
+import { domElement } from "./constans";
+import { filterData } from "./constans";
+import { variable } from "./constans";
+import { creatFirstPage } from './showMovie';
 
-domElement.nav.addEventListener('click', (event) => {
+export const showFilters = () => {
+    domElement.containerFilter.style.display = 'block';
+}
+
+export const getFilms = (event) => {
     if (event.target.tagName !== 'LI') {
         return false
     }
@@ -10,7 +17,7 @@ domElement.nav.addEventListener('click', (event) => {
     if (!filterData.genre_ids.includes(+event.target.id)) {
         filterData.genre_ids.push(+event.target.id);
     }
-})
+}
 
 // const handleFilter = (movies) => {
 //     if (movies.length) {
@@ -42,13 +49,13 @@ domElement.nav.addEventListener('click', (event) => {
 //     }
 // }
 
-domElement.filmId.addEventListener('change', (e) => {
-    filterData.id = Number(e.target.value);
-})
+export const filterByiD = (evt) => {
+    filterData.id = Number(evt.target.value);
+}
 
-domElement.selectLanguage.addEventListener('change', (e) => {
-    filterData.original_language = e.target.value;
-})
+export const filterByLanguage = (evt) => {
+    filterData.original_language = evt.target.value;
+}
 
 const handFiltGenre = (movies, genresList) => {
     const temporaryArr = [];
@@ -76,7 +83,7 @@ const handleById = (movies, key, value) => {
     return temporaryArr
 }
 
-domElement.btnFilter.addEventListener('click', () => {
+export const showFilms = () => {
     const filtredByGenre = handFiltGenre(constants.movies, filterData.genre_ids);
     const filteredById = handleById(filtredByGenre.length ? filtredByGenre : constants.movies, 'id', filterData.id);
     const filteredByLang = handleById(filtredByGenre.length ? filtredByGenre : constants.movies, 'original_language', filterData.original_language);
@@ -92,34 +99,37 @@ domElement.btnFilter.addEventListener('click', () => {
         constants.filteredFilms = [...filtredByGenre]
     }
 
-    creatFirstPage(constants.filteredFilms)
+    creatFirstPage(constants.filteredFilms, 0)
 
     domElement.containerFilter.style.display = 'none';
-})
-
-function openCloseFilters(evt) {
-    DOM.filter.className === 'filter hidden' ?  DOM.filter.className = 'filter' :  DOM.filter.className = 'filter hidden';
 }
 
-function changeColorGenres(evt) {
+export function openCloseFilters(evt) {
+    DOM.filter.className === 'filter hidden' ? DOM.filter.className = 'filter' : DOM.filter.className = 'filter hidden';
+}
+
+export function changeColorGenres(evt) {
     (evt.target.style.color !== 'red') ? evt.target.style.color = 'red' : evt.target.style.color = 'white';
 }
 
-DOM.filterBtn.addEventListener('click', openCloseFilters);
-DOM.genres.addEventListener('click', changeColorGenres);
+export const resetFilter = () => {
+    // filterData = {
+    //     genre_ids: [],
+    //     id: null,
+    //     release_date: null,
+    //     original_language: null,
+    //     budget: null,
+    //     adult: null,
+    // }
+    filterData.genre_ids = [];
+    filterData.id = null;
+    filterData.release_date = null;
+    filterData.original_language = null;
+    filterData.budget = null;
+    filterData.adult = null
 
-domElement.btnResetSettings.addEventListener('click', () => {
-
-    filterData = {
-        genre_ids: [],
-        id: null,
-        release_date: null,
-        original_language: null,
-        budget: null,
-        adult: null,
-}
     variable.skip = 0;
     constants.filteredFilms = []
     creatFirstPage(constants.movies, 0)
     domElement.containerFilter.style.display = 'none';
-})
+}
