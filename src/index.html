@@ -5,9 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
-    <!-- <link rel="stylesheet" href="./styles/filter.css" />
-    <link rel="stylesheet" href="./styles/footer.css" /> -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/filter.css" />
+    <link rel="stylesheet" href="./styles/range.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
     <title>Document</title>
 </head>
 
@@ -46,20 +47,17 @@
     <div class="filter hidden">
         <div class="filterPopup">
             <div class="containerFilter">
-                <div class="headerFilter">EXPLORE OUR TITLES</div>
+                <div class="headerFilter">
+                    <div class="titleFiltersHeader">
+                        EXPLORE OUR TITLES
+                    </div>
+                    <div class="resetBtn">
+                        <button class="btnResetSettings">Reset filters</button>
+                    </div>
+                </div>
+
                 <div class="filterTitle">
                     <div class="filterTitles">FILTER TITLES</div>
-                    <!-- <div class="selectGenre">
-                  <div class="genre">Genre</div>
-                    <input type="checkbox" id="action"/><label for="action">Action</label>
-                    <input type="checkbox" id="comedy"/><label for="comedy">Comedy</label>
-                    <input type="checkbox" id="drama"/><label for="drama">Drama</label>
-                    <input type="checkbox" id="family"/><label for="family">Family</label>
-                    <input type="checkbox" id="fantasy"/><label for="fantasy">Fantasy</label>
-                    <input type="checkbox" id="horror"/><label for="horror">Horror</label>
-                    <input type="checkbox" id="adult"/><label for="adult">Adult</label>
-                </div> -->
-
                     <nav id="nav-block">Сhoose genres:
                         <ul class="genres">
                             <li data-f="Action" id="1" class="filmsGenres" data-value="1">Action</li>
@@ -71,11 +69,34 @@
                         </ul>
                     </nav>
 
-
-                    <div class="selectRange">
-                        <div class="doubleRange">DoubleRange</div>
-                        <div class="doubleRange">DoubleRange</div>
+                    <div class="wraperRange">
+                        <div class="blockRange1">
+                            <div class="values">
+                                <span id="range1">0</span>
+                                <span> &dash; </span>
+                                <span id="range2">100</span>
+                            </div>
+                            <div class="containerRange">
+                                <div class="slider-track-first"></div>
+                                <input type="range" min="0" max="100" value="10" id="slider-1" oninput="slideOne()">
+                                <input type="range" min="0" max="100" value="90" id="slider-2" oninput="slideTwo()">
+                            </div>
+                        </div>
+    
+                        <div class="blockRange2">
+                            <div class="values">
+                                <span id="range3">0</span>
+                                <span> &dash; </span>
+                                <span id="range4">100</span>
+                            </div>
+                            <div class="containerRange">
+                                <div class="slider-track-second"></div>
+                                <input type="range" min="0" max="100" value="10" id="slider-3" oninput="slideThree()">
+                                <input type="range" min="0" max="100" value="90" id="slider-4" oninput="slideFour()">
+                            </div>
+                        </div>
                     </div>
+
                     <div class="selectOther">
                         <div class="releaseData">
                             <label for="startData">Release data first</label>
@@ -98,7 +119,6 @@
                 </div>
                 <div class="blockBtnFilter">
                     <button class="btnFilter">Filter</button>
-                    <button class="btnResetSettings">Reset settings</button>
                 </div>
             </div>
         </div>
@@ -138,21 +158,21 @@
         <div class="contacts">
             <div class="contactUs"></div>
             <div class="developers">
-                <div class="irina"></div>
                 <div class="roman"></div>
                 <div class="maxim"></div>
-                <div class="olga"></div>
+                <div class="sasha"></div>
                 <div class="vladislav"></div>
             </div>
         </div>
         <div class="lodoDevEducation"></div>
     </footer>
 </body>
-<!-- <script src="../src/script/dom.ts"></script> -->
-<!-- <script src="../src/script/constans.js"></script> -->
-<!-- <script src="../src/script/index.ts"></script> -->
-<!-- <script src="../src/script/showMovie.js"></script> -->
-<!-- <script src="../src/script/filters.js"></script> -->
-<!-- <script src="../src/script/showDescription.js"></script> -->
+<script src="../src/script/dom.js"></script>
+<script src="../src/script/constans.js"></script>
+<script src="../src/script/Authorization.js"></script>
+<script src="../src/script/showMovie.js"></script>
+<script src="../src/script/filters.js"></script>
+<script src="../src/script/range.js"></script>
+<script src="../src/script/showDescription.js"></script>
 
 </html>
