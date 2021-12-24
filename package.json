@@ -16,11 +16,13 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.5",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-typescript": "^7.16.5",
     "@types/webpack-dev-server": "^4.5.0",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
+    "axios": "^0.24.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.3",
     "babel-polyfill": "^6.26.0",
@@ -46,9 +48,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
-    "@babel/plugin-transform-runtime": "^7.16.4",
     "@babel/runtime": "^7.16.3",
-    "axios": "^0.24.0",
     "normalize.css": "^8.0.1"
   }
 }

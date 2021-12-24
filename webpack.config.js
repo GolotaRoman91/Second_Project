@@ -12,7 +12,7 @@ const filename = (ext) => isDev ? `[name].${ext}` : `[name].[contenthash].${ext}
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
-    entry: './script/index.ts',
+    entry: './script/moviePage.ts',
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
@@ -22,7 +22,7 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: path.resolve('src/index.html'),
+            template: path.resolve('src/moviePage.html'),
             filename: 'index.html',
             minify: {
                 collapseWhitespace: isProd

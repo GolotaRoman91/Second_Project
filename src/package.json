@@ -1,0 +1,54 @@
+{
+  "name": "project_two",
+  "version": "2.0.1",
+  "main": "index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "start": "webpack-dev-server --mode development --open",
+    "lint": "eslint . --ext .ts",
+    "lint-and-fix": "eslint --fix --ext .ts"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Maximus",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.5",
+    "@types/webpack-dev-server": "^4.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "core-js": "^3.19.3",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "eslint": "7.32.0",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^6.5.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "regenerator-runtime": "^0.13.9",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/runtime": "^7.16.3",
+    "axios": "^0.24.0",
+    "normalize.css": "^8.0.1"
+  }
+}
