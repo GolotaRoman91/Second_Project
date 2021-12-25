@@ -1,7 +1,0 @@
-{
-    "compilerOptions": {
-        "noEmitOnError": true,
-        "target": "ES6",
-        "watch": true
-    }
-}
