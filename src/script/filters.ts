@@ -19,36 +19,6 @@ export const getFilms = (event) => {
     }
 }
 
-// const handleFilter = (movies) => {
-//     if (movies.length) {
-//         constants.filteredFilms = [];
-//
-//         movies.forEach((movie) => {
-//             if (filterData.filmId) {
-//                 if (filterData.filmId === movie.id) {
-//                     constants.filteredFilms.push(movie);
-//                 }
-//
-//             } else {
-//                 switch (true) {
-//                     case filterData.lang && filterData.lang === movie.original_language:
-//                         constants.filteredFilms.push(movie);
-//                         break;
-//
-//                     case !!filterData.genres.length:
-//                         filterData.genres.forEach((genre) => {
-//                             if (movie.genre_ids.includes(genre) && !constants.filteredFilms.includes(movie)) {
-//                                 constants.filteredFilms.push(movie);
-//                             }
-//                         })
-//                         break;
-//                 }
-//             }
-//
-//         })
-//     }
-// }
-
 export const filterByiD = (evt) => {
     filterData.id = Number(evt.target.value);
 }
@@ -113,14 +83,6 @@ export function changeColorGenres(evt) {
 }
 
 export const resetFilter = () => {
-    // filterData = {
-    //     genre_ids: [],
-    //     id: null,
-    //     release_date: null,
-    //     original_language: null,
-    //     budget: null,
-    //     adult: null,
-    // }
     filterData.genre_ids = [];
     filterData.id = null;
     filterData.release_date = null;

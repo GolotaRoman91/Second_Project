@@ -40,7 +40,7 @@ export function creatFirstPage(movies, skip) {
 
 function createPost(film, imageSrc) {
     return `
-         <div class="cartFilm">
+         <div class="cartFilm" id="${film.id}">
             <img src=${imageSrc} class="poster">
             <div class="descriptionWrapper">
                 ${film.title}
@@ -48,7 +48,6 @@ function createPost(film, imageSrc) {
                 ${film.tagline}
             </div>
          </div>
-    
     `
 }
 domElement.BtnLeft.addEventListener('click', () => scrollLeft(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
@@ -76,4 +75,11 @@ function scrollRight(movies) {
         creatFirstPage(movies, variable.skip)
     }
     console.log('variable.skip: ', variable.skip)
+}
+
+domElement.movieContainer.onclick = function (event) {
+    let target = event.target;
+    const currentFilmId = (<HTMLElement>target).parentElement.id
+    window.open("./moviePage.html")
+    console.log(currentFilmId)
 }

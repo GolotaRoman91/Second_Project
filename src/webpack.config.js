@@ -10,9 +10,12 @@ const isProd = process.env.NODE_ENV === 'production';
 const filename = (ext) => isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`;
 
 module.exports = {
+    entry: {
+        main: './script/index.ts',
+        page: './script/moviePage.ts',
+    },
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
-    entry: './script/index.ts',
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
@@ -26,7 +29,16 @@ module.exports = {
             filename: 'index.html',
             minify: {
                 collapseWhitespace: isProd
-            }
+            },
+            chunks: ['main']
+        }),
+        new HTMLWebpackPlugin({
+            template: path.resolve('src/moviePage.html'),
+            filename: 'moviePage.html',
+            minify: {
+                collapseWhitespace: isProd
+            },
+            chunks: ['page']
         }),
         new ForkTsCheckerWebpackPlugin({
             typescript: {
