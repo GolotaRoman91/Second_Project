@@ -5,7 +5,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie404</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/filter.css" />
+    <link rel="stylesheet" href="./styles/range.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <title>Document</title>
 </head>
 
 <body>
@@ -78,7 +82,7 @@
                                 <input type="range" min="0" max="100" value="90" id="slider-2" oninput="slideTwo()">
                             </div>
                         </div>
-
+    
                         <div class="blockRange2">
                             <div class="values">
                                 <span id="range3">0</span>
@@ -123,10 +127,9 @@
     <main>
         <div class="container">
             <nav class="navigation">
-                <div class="logo"><a href="http://localhost:4200/"><img src="./image/Logo.png" class="logoImg"
-                            alt=""></a></div>
+                <div class="logo">Logo</div>
                 <div class="navigationRight hidden">
-                    <div class="home"><a href="http://localhost:4200/">HOME</a></div>
+                    <div class="home">HOME</div>
                     <div class="second">SECOND</div>
                     <div class="signOut">SIGN OUT</div>
                 </div>
@@ -134,14 +137,14 @@
             <div class="filmsArea hidden">
                 <div class="films">
                     <div class="header">
-                        <h2 class="filmsTitle">FILMS</h2>
+                        <h2>FILMS</h2>
                     </div>
-                    <button class="btnFilterFilms">FILTER</button>
+                    <button class="btnFilterFilms">Filter</button>
                     <div class="wrapperPosButt">
                         <div class="buttPos">
                             <div href="#" class="btnRight"><img class="imgBtnRight" src="./image/arrow_left.png"
                                     alt="Next"></div>
-                            <div class="cartFilms slider__items">
+                            <div class="cartFilms">
                             </div>
                             <div href="#" class="btnLeft"><img class="imgBtnLeft" src="./image/arrow_right.png"
                                     alt="Next"></div>
@@ -155,14 +158,21 @@
         <div class="contacts">
             <div class="contactUs"></div>
             <div class="developers">
-                <div class="roman"><a target="_blank" href="https://github.com/GolotaRoman91">Roman</a></div>
-                <div class="maxim"><a target="_blank" href="https://github.com/OrlovMaks">Max</a></div>
-                <div class="sasha"><a target="_blank" href="">Alexander</a></div>
-                <div class="vladislav"><a target="_blank" href="">Vladislav</a></div>
+                <div class="roman"></div>
+                <div class="maxim"></div>
+                <div class="sasha"></div>
+                <div class="vladislav"></div>
             </div>
         </div>
         <div class="lodoDevEducation"></div>
     </footer>
 </body>
+<script src="../src/script/dom.js"></script>
+<script src="../src/script/constans.js"></script>
+<script src="../src/script/Authorization.js"></script>
+<script src="../src/script/showMovie.js"></script>
+<script src="../src/script/filters.js"></script>
+<script src="../src/script/range.js"></script>
+<script src="../src/script/showDescription.js"></script>
 
 </html>

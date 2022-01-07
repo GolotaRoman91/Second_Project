@@ -1,7 +1,6 @@
 html,
 body {
   height: 100%;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
   padding: 0;
@@ -22,7 +21,7 @@ main {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100%; 
 }
 
 .container {
@@ -31,7 +30,25 @@ main {
   flex-direction: column;
 }
 
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 70px;
+  background-color: black;
+}
 
+.navigationRight {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo,
+.home,
+.second,
+.signOut {
+  margin: 30px 15px 10px 15px;
+}
 
 .films {
   display: flex;
@@ -44,6 +61,7 @@ main {
 
 .btnFilterFilms {
   margin-left: 30px;
+  margin-bottom: 20px;
   justify-content: start;
   background-color: #ff5f05;
   border-radius: 0px;
@@ -52,16 +70,7 @@ main {
   height: 30px;
   color: #fff;
   font-size: 20px;
-  font-weight: 700;
   cursor: pointer;
-  transition: 0.2s;
-  border-radius: 5px;
-}
-.btnFilterFilms:hover{
-  transform: scale(1.1);
-}
-.btnFilterFilms:active{
-  transform: scale(0.9);
 }
 
 .cartFilms {
@@ -70,9 +79,6 @@ main {
   justify-content: space-between;
   width: 100%;
 }
-.cartFilm:hover{
-  transform: scale(1.2);
-}
 .cartFilm:hover .descriptionWrapper{
   opacity: 1;
   transform: translateY(-100%);
@@ -80,20 +86,19 @@ main {
 
 .cartFilm {
   width: calc(100% / 5);
+  background-color: #fff;
   position: relative;
   margin: 0 20px;
   height: 330px;
   cursor: pointer;
   overflow: hidden;
-  border: 6px solid rgba(255, 255, 255, 0.267);
-  border-radius: 5px;
-  transition: 0.3s
 }
 .poster {
     width: 100%;
     height: 330px;
     object-fit: cover;
     z-index: 1;
+    /* background-size: cover; */
 }
 
 .hidden{
@@ -224,8 +229,11 @@ main {
 .sign_in {
   cursor: pointer;
 }
+.signOut {
+  cursor: pointer;
+}
 .wrapperPosButt{
-  margin-top: 4%;
+  margin-top: 7%;
 }
 .buttPos{
   display: flex;
@@ -258,12 +266,7 @@ main {
   opacity: 0;
   padding: 10px;
   background: rgba(0, 0, 0, 0.5)
-}
-.filmsTitle{
-  font-size: 28;
-  font-weight: 700;
-  color: #fff;
-}
+};
 
 
 /* .descriptionWrapperShow {

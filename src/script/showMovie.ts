@@ -1,7 +1,6 @@
 import { constants } from "./constans";
 import { domElement } from "./constans";
 import { variable } from "./constans";
-import { movie } from "./types";
 export async function addMovie() {
     await fetch(constants.requestURLMovie)
         .then(response => response.json())
@@ -10,14 +9,19 @@ export async function addMovie() {
         .then(() => variable.numbersPage = Math.ceil(constants.movies.length / constants.movieOnPage))
         .catch(error => console.log(error))
 }
-export function creatFirstPage(movies: movie[], skip: number): void {
+// addMovie()
+
+export function creatFirstPage(movies, skip) {
+    console.log('here')
     domElement.movieContainer.innerHTML = "";
     variable.currentPage = Math.ceil(movies.length / 5);
 
-    if ((<movie[]>movies).length && !skip) {
+    if (movies.length && !skip) {
+        console.log('movies: ', movies)
         movies.forEach((item, index) => {
             if (index < 5) {
                 const imageSrc = `${constants.URLIMG}${item.backdrop_path}`
+                console.log('imageSrc: ', imageSrc)
                 variable.htmlElems.push(constants.URLIMG + movies[index]?.backdrop_path);
                 domElement.movieContainer.innerHTML += createPost(item, imageSrc);
             }
@@ -26,6 +30,7 @@ export function creatFirstPage(movies: movie[], skip: number): void {
         const skipArr = movies.slice(skip, skip + 5)
         skipArr.forEach(elem => {
             const imageSrc = `${constants.URLIMG}${elem.backdrop_path}`
+            console.log('imageSrc: ', imageSrc)
             variable.htmlElems.push(constants.URLIMG + elem?.backdrop_path);
             domElement.movieContainer.innerHTML += createPost(elem, imageSrc);
         });
@@ -33,9 +38,9 @@ export function creatFirstPage(movies: movie[], skip: number): void {
 }
 
 
-function createPost(film: movie, imageSrc: string) {
+function createPost(film, imageSrc) {
     return `
-         <div class="cartFilm slider__item" id="${film.id}">
+         <div class="cartFilm">
             <img src=${imageSrc} class="poster">
             <div class="descriptionWrapper">
                 ${film.title}
@@ -43,10 +48,11 @@ function createPost(film: movie, imageSrc: string) {
                 ${film.tagline}
             </div>
          </div>
+    
     `
 }
 domElement.BtnLeft.addEventListener('click', () => scrollLeft(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
-function scrollLeft(movies: movie[]): void {
+function scrollLeft(movies) {
     if (movies.length >= 5 && variable.skip !== 0) {
         variable.skip = variable.skip - 5
     } else if (variable.skip === 0) {
@@ -55,10 +61,11 @@ function scrollLeft(movies: movie[]): void {
     else {
         variable.skip = movies.length
     }
+    console.log('variable.skip: ', variable.skip)
     creatFirstPage(movies, variable.skip)
 }
 domElement.BtnRight.addEventListener('click', () => scrollRight(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
-function scrollRight(movies: movie[]): void {
+function scrollRight(movies) {
     if (movies.length >= 5 && variable.skip !== movies.length) {
         variable.skip = variable.skip + 5
     } else {
@@ -68,13 +75,5 @@ function scrollRight(movies: movie[]): void {
     if (variable.skip !== movies.length) {
         creatFirstPage(movies, variable.skip)
     }
-}
-domElement.movieContainer.onclick = function (event: MouseEvent) {
-    let target = event.target;
-    if ((<HTMLElement>target).className === "cartFilms") {
-        return
-    } else {
-        const currentFilmId = (<HTMLElement>target).parentElement.id
-        window.open(`./moviePage.html#${currentFilmId}`)
-    }
+    console.log('variable.skip: ', variable.skip)
 }

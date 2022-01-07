@@ -1,14 +1,12 @@
-import { movie } from "./types";
 export const constants = {
     URLIMG: 'https://image.tmdb.org/t/p/original',
     requestURLMovie: 'https://wowmeup.pp.ua/movie?_limit=100',
-    movies: [] as movie[],
+    movies: [],
     movieOnPage: 5,
     filteredFilms: [],
     adultFilms: [],
     budgetFilms: [],
-    filmByLang: [],
-    idMovie: document.URL.split('#')[1]
+    filmByLang: []
 };
 
 export const domElement = {

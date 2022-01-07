@@ -4,7 +4,7 @@ import { bodySignUp } from './types';
 import { bodySignIn } from './types';
 import { DOM } from './dom'
 checkToken();
-async function sendRequest(method: string, url: string, body: bodySignUp): Promise<string> {
+async function sendRequest(method: string, url: string, body: bodySignUp) {
     const headers = {
         'Content-Type': 'application/json'
     }
@@ -15,7 +15,7 @@ async function sendRequest(method: string, url: string, body: bodySignUp): Promi
     });
     return response.json();
 }
-export async function modal(): Promise<void> {
+export async function modal() {
     showMessage();
     async function showMessage() {
         const bodySignUp = {
@@ -29,36 +29,49 @@ export async function modal(): Promise<void> {
         checkResponse(data, bodySignUp)
     }
 }
-async function checkResponse(data: any, bodySignUp: bodySignUp): Promise<void> {
+async function checkResponse(data: any, bodySignUp: bodySignUp) {
     switch (true) {
-        case (data.message === "Registration successful"): {
-            DOM.wrapUp.classList.add("hidden"),
-                DOM.wrapIn.classList.remove("hidden")
-            break;
-        }
-        case (data.message === `User with login ${bodySignUp.login} already exist`): {
-            console.log(data.message)
-            DOM.outputUp.innerHTML = data.message;
-            break;
-        }
-        case (!!data.password): {
-            DOM.outputUp.innerHTML = data.password;
-            break;
-        }
-        case (!!data.first_name): {
-            DOM.outputUp.innerHTML = data.first_name;
-            break;
-        }
-        case (!!data.last_name): {
-            DOM.outputUp.innerHTML = data.last_name;
-            break;
-        }
-        default: {
-            DOM.outputUp.innerHTML = "Invalid data";
-        }
+    case (data.message === "Registration successful"): {
+        DOM.wrapUp.classList.add("hidden"),
+        DOM.wrapIn.classList.remove("hidden")
+        break;
     }
+    case (data.message === `User with login ${bodySignUp.login} already exist`): {
+        console.log(data.message)
+        DOM.outputUp.innerHTML = data.message;
+        break;
+    }
+    case (data.password): {
+        DOM.outputUp.innerHTML = data.password;
+        break;
+    }
+    case (data.first_name): {
+        DOM.outputUp.innerHTML = data.first_name;
+        break;
+    }
+    case (data.last_name): {
+        DOM.outputUp.innerHTML = data.last_name;
+        break;
+    }
+    default: {
+        DOM.outputUp.innerHTML = "Invalid data";
+    }
+    }
+    // if (data.message === "Registration successful") {
+    //     DOM.outputUp.innerHTML = data.message,
+    //         DOM.wrapperIn.classList.remove("hidden"),
+    //         DOM.wrapperUp.classList.add("hidden")
+    // } else if (data.message === `User with login ${bodySignUp.login} already exist`) {
+    //     DOM.outputUp.innerHTML = data.message
+    // } else if (data.password) {
+    //     DOM.outputUp.innerHTML = data.password
+    // } else if (data.first_name) {
+    //     DOM.outputUp.innerHTML = data.first_name
+    // } else if (data.last_name) {
+    //     DOM.outputUp.innerHTML = data.last_name
+    // }
 }
-export function checkToken(): void {
+function checkToken() {
     if (!localStorage.getItem('token')) {
         DOM.wrapRegistr.classList.remove("hidden")
         DOM.filmsArea.classList.add("hidden")
@@ -88,31 +101,31 @@ async function sendRequestSignIn(method: string, url: string, body: bodySignIn) 
             throw new Error()
         }
     } catch (error) {
-        return "Invalid data"
+        return -1
     }
 }
-export async function signIn(): Promise<void> {
+export async function signIn() {
     const bodySignIn = {
         login: DOM.username.value,
         password: DOM.userpass.value
     }
     const result = await sendRequestSignIn('POST', DOM.requestURlsignIn, bodySignIn);
-    if (result === "Invalid data") {
+    if (result === -1) {
         DOM.outputIn.innerHTML = "Invalid password or username"
     } else {
         localStorage.setItem('token', JSON.stringify(result))
     }
     checkToken()
 }
-export function toSignUp(): void {
+export function toSignUp() {
     DOM.wrapIn.classList.remove("hidden")
     DOM.wrapUp.classList.add("hidden")
 }
-export function toSignIn(): void {
+export function toSignIn() {
     DOM.wrapIn.classList.add("hidden")
     DOM.wrapUp.classList.remove("hidden")
 }
-export function signOut(): void {
+export function signOut() {
     localStorage.removeItem('token');
     checkToken();
 }
