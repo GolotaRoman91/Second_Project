@@ -23,5 +23,18 @@ export const DOM = {
     navigationRight: document.querySelector('.navigationRight') as HTMLLIElement,
     filterBtn: document.querySelector('.btnFilterFilms') as HTMLButtonElement,
     filter: document.querySelector('.filter') as HTMLLIElement,
-    genres: document.querySelector('.genres') as HTMLLIElement
+    genres: document.querySelector('.genres') as HTMLLIElement,
+    originalTitle: document.querySelector('.film_original_name'),
+    date: document.querySelector('.film_date'),
+    filmGenres: document.querySelector('.film_genres'),
+    rate: document.querySelector('.film_rate'),
+    filmRevenue: document.querySelector('.film_revenue'),
+    filmAdult: document.querySelector('.film_adult'),
+    filmPopularity: document.querySelector('.film_popularity'),
+    language: document.querySelector('.film_languages'),
+    poster: document.querySelector('.poster') as HTMLImageElement,
+    description: document.querySelector('.description'),
+    title: document.querySelector('.film_name'),
+    signOut: document.querySelector('.signOut')
+
 }

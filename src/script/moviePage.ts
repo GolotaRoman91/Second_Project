@@ -1,24 +1,18 @@
 import '../styles/moviePage.css'
+import '../styles/footer.css'
+import '../styles/header.css'
 require('../image/bg.jpg');
 require('../image/adv.gif');
 require('../image/tempMovieImage.jpg');
 require('../image/media_player.png');
+require('../image/defoultBackgroundMainPage.png');
 import "regenerator-runtime/runtime";
 import { constants } from "./constans";
+import { genresType } from "./types";
+import { DOM } from "./dom"
 const axios = require('axios').default;
-const originalTitle = document.querySelector('.film_original_name')
-const date = document.querySelector('.film_date')
-const genres = document.querySelector('.film_genres')
-const rate = document.querySelector('.film_rate')
-const filmRevenue = document.querySelector('.film_revenue')
-const filmAdult = document.querySelector('.film_adult')
-const filmPopularity = document.querySelector('.film_popularity')
-const language = document.querySelector('.film_languages')
-const poster: HTMLImageElement = document.querySelector('.poster')
-const description = document.querySelector('.description')
-const title = document.querySelector('.film_name')
 
-const getGenres = async (genres_ids) => {
+const getGenres = async (genres_ids: number[]): Promise<string> => {
     try {
         const response = await axios.get('https://wowmeup.pp.ua/genres');
         const genres = response.data.genres
@@ -30,34 +24,32 @@ const getGenres = async (genres_ids) => {
 
 }
 
-function setGenresForMovie (genres, genres_ids) {
-    genres_ids  = [...new Set(genres_ids)]
+function setGenresForMovie(genres: genresType[], genres_ids: number[]): string {
+    genres_ids = [...new Set(genres_ids)]
     let stringGenres = ''
     genres_ids.forEach(elem => {
-        stringGenres += genres[elem-1].name + ', '
+        stringGenres += genres[elem - 1].name + ', '
     })
-    return stringGenres.slice(0,stringGenres.length-2)
+    return stringGenres.slice(0, stringGenres.length - 2)
 }
 
-const getMovie = async () => {
+const getMovie = async (): Promise<void> => {
     try {
-        const response = await axios.get('https://wowmeup.pp.ua/movie/4');
+        const response = await axios.get(`https://wowmeup.pp.ua/movie/${constants.idMovie}`);
         const movie = response.data.movie
         movie.genre_ids = await getGenres(movie.genre_ids)
-        renderMovieData (movie)
+        renderMovieData(movie)
     } catch (error) {
         console.error(error);
     }
 }
-
 getMovie()
 
-
-function setData(data, attribute) {
+function setData(data: string | string[], attribute): void {
     attribute.textContent = data
 }
 
-function isAdult(adult) {
+function isAdult(adult: boolean): string {
     if (adult === true) {
         return 'yes'
     } else {
@@ -65,24 +57,23 @@ function isAdult(adult) {
     }
 }
 
-function sliceDate(release_date) {
+function sliceDate(release_date: string | string[]): string | string[] {
     return release_date.slice(0, 10);
 }
 
-function renderMovieData (movie) {
-    poster.src = `${constants.URLIMG}${movie.backdrop_path}`
-    setData(movie.original_title, originalTitle)
-    setData(movie.original_language, language)
-    setData(sliceDate(movie.release_date), date)
-    setData(movie.movie_rate, rate)
-    setData( isAdult(movie.adult), filmAdult)
-    setData(movie.revenue, filmRevenue)
-    setData(movie.popularity, filmPopularity)
-    setData(movie.overview, description)
-    setData(movie.title, title)
-    setData(movie.genre_ids, genres)
+function renderMovieData(movie: { backdrop_path: string; original_title: string; original_language: string; release_date: string; movie_rate: string; adult: boolean; revenue: string; popularity: string; overview: string; title: string; genre_ids: string; }): void {
+    DOM.poster.src = `${constants.URLIMG}${movie.backdrop_path}`
+    setData(movie.original_title, DOM.originalTitle)
+    setData(movie.original_language, DOM.language)
+    setData(sliceDate(movie.release_date), DOM.date)
+    setData(movie.movie_rate, DOM.rate)
+    setData(isAdult(movie.adult), DOM.filmAdult)
+    setData(movie.revenue, DOM.filmRevenue)
+    setData(movie.popularity, DOM.filmPopularity)
+    setData(movie.overview, DOM.description)
+    setData(movie.title, DOM.title)
+    setData(movie.genre_ids, DOM.filmGenres)
 }
-
 
 
 
