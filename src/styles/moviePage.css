@@ -1,0 +1,98 @@
+html {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  border-radius: 0px;
+}
+
+.poster {
+  width: 100%;
+}
+
+.film_name {
+  font-size: 40px;
+  margin: 0;
+  margin-bottom: 50px;
+
+}
+
+.table_film_data {
+  float: right;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 100%;
+  text-indent: initial;
+
+}
+
+.poster {
+  float: left;
+  border-radius: 20px;
+  width: 60%;
+}
+
+tr {
+  line-height: 20px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+.description_h2 {
+  margin-right: 15px;
+}
+
+.movie_page {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  background-color: rgba(255, 255, 255, 0.733);
+  padding: 50px;
+}
+
+
+.film_data {
+  font-size: 20px;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 22px;
+  padding-top: 5px;
+  padding-bottom: 30px;
+}
+
+.advertising {
+  float: right;
+  width: 170px;
+  margin-left: 50px;
+}
+
+.player {
+ width: 100%;
+}
+
+
+.backImg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
