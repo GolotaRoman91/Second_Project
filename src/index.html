@@ -9,6 +9,14 @@
 </head>
 
 <body>
+    <div class="bodyLoader">
+        <div class="containerLoader">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
     <img class="backImg" src="./image/bg.jpg" alt="">
     <div class="wrapRegistr">
         <div class="registr">
@@ -42,71 +50,71 @@
     </div>
     <div class="filter hidden">
 
-            <div class="containerFilter">
-                <div class="headerFilter">
-                    <div class="titleFiltersHeader">
-                        EXPLORE OUR TITLES
-                    </div>
-                    <div class="resetBtn">
-                        <button class="btnResetSettings">Reset filters</button>
-                    </div>
+        <div class="containerFilter">
+            <div class="headerFilter">
+                <div class="titleFiltersHeader">
+                    EXPLORE OUR TITLES
                 </div>
-
-                <div class="filterTitle">
-                    <nav id="nav-block">
-                        <div class="chooseGenres">СHOOSE GENRES:</div>
-                        <ul class="genres">
-                            <li data-f="Action" id="1" class="filmsGenres" data-value="1">Action</li>
-                            <li data-f="Comedy" id="4" class="filmsGenres" data-value="4">Comedy</li>
-                            <li data-f="Drama" id="7" class="filmsGenres" data-value="7">Drama</li>
-                            <li data-f="Family" id="12" class="filmsGenres" data-value="8">Family</li>
-                            <li data-f="Fantasy" id="9" class="filmsGenres" data-value="9">Fantasy</li>
-                            <li data-f="Horror" id="3" class="filmsGenres" data-value="11">Horror</li>
-                        </ul>
-                    </nav>
-
-                    <div class="releaseData">
-                        <label for="startData">Date of release</label>
-                        <input type="date" id="startData" value="2000-01-01" min="1900-01-01" max="2022-12-31">
-                        <label for="endData">On</label>
-                        <input type="date" id="endData" value="2021-12-03" min="1900-01-01" max="2022-12-31">
-                    </div>
-
-                    <div class="wraperRange">
-                        <div class="blockRange">
-                            <div class="slider">
-                              <div class="track"></div>
-                            </div>
-                              <div class="output o0"> </div>
-                              <div class="thumb t0"></div>
-                            
-                              <div class="output o1"> </div>
-                              <div class="thumb t1"></div>
-                        </div>
-
-                        <div class="chooseLanguage">                       
-                             <div class="languageSelect">Language</div>
-                            <input id="selectLanguage" list="language">
-                            <datalist id="language">
-                                <option value="en">
-                                <option value="ru">
-                                <option value="ko">
-                                <option value="it">
-                            </datalist>
-                        </div>
-                    </div>
-
-                    <div class="hiddeId">
-                        <label for="filmId">Film By Id</label>
-                        <input type="number" id="filmId" min="1" max="9999">   
-                    </div>
-
-                </div>
-                <div class="blockBtnFilter">
-                    <button class="btnFilter">Filter</button>
+                <div class="resetBtn">
+                    <button class="btnResetSettings">Reset filters</button>
                 </div>
             </div>
-  
+
+            <div class="filterTitle">
+                <nav id="nav-block">
+                    <div class="chooseGenres">СHOOSE GENRES:</div>
+                    <ul class="genres">
+                        <li data-f="Action" id="1" class="filmsGenres" data-value="1">Action</li>
+                        <li data-f="Comedy" id="4" class="filmsGenres" data-value="4">Comedy</li>
+                        <li data-f="Drama" id="7" class="filmsGenres" data-value="7">Drama</li>
+                        <li data-f="Family" id="12" class="filmsGenres" data-value="8">Family</li>
+                        <li data-f="Fantasy" id="9" class="filmsGenres" data-value="9">Fantasy</li>
+                        <li data-f="Horror" id="3" class="filmsGenres" data-value="11">Horror</li>
+                    </ul>
+                </nav>
+
+                <div class="releaseData">
+                    <label for="startData">Date of release</label>
+                    <input type="date" id="startData" value="2000-01-01" min="1900-01-01" max="2022-12-31">
+                    <label for="endData">On</label>
+                    <input type="date" id="endData" value="2021-12-03" min="1900-01-01" max="2022-12-31">
+                </div>
+
+                <div class="wraperRange">
+                    <div class="blockRange">
+                        <div class="slider">
+                            <div class="track"></div>
+                        </div>
+                        <div class="output o0"> </div>
+                        <div class="thumb t0"></div>
+
+                        <div class="output o1"> </div>
+                        <div class="thumb t1"></div>
+                    </div>
+
+                    <div class="chooseLanguage">
+                        <div class="languageSelect">Language</div>
+                        <input id="selectLanguage" list="language">
+                        <datalist id="language">
+                            <option value="en">
+                            <option value="ru">
+                            <option value="ko">
+                            <option value="it">
+                        </datalist>
+                    </div>
+                </div>
+
+                <div class="hiddeId">
+                    <label for="filmId">Film By Id</label>
+                    <input type="number" id="filmId" min="1" max="9999">
+                </div>
+
+            </div>
+            <div class="blockBtnFilter">
+                <button class="btnFilter">Filter</button>
+            </div>
+        </div>
+
     </div>
     </div>
     <main>
