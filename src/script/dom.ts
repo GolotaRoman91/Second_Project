@@ -35,6 +35,7 @@ export const DOM = {
     poster: document.querySelector('.poster') as HTMLImageElement,
     description: document.querySelector('.description'),
     title: document.querySelector('.film_name'),
-    signOut: document.querySelector('.signOut')
+    signOut: document.querySelector('.signOut'),
+    loader: document.querySelector('.bodyLoader')
 
 }

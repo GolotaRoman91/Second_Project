@@ -1,3 +1,4 @@
+import '../styles/loader.css'
 import '../styles/moviePage.css'
 import '../styles/footer.css'
 import '../styles/header.css'
@@ -9,8 +10,11 @@ require('../image/defoultBackgroundMainPage.png');
 import "regenerator-runtime/runtime";
 import { constants } from "./constans";
 import { genresType } from "./types";
+import { loader } from './loader';
 import { DOM } from "./dom"
 const axios = require('axios').default;
+
+loader()
 
 const getGenres = async (genres_ids: number[]): Promise<string> => {
     try {
