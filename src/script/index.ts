@@ -17,6 +17,7 @@ require('../image/arrow_left.png');
 require('../image/arrow_right.png');
 require('../image/bg.jpg');
 require('../image/Logo.png');
+require('../image/favicon.png');
 
 window.addEventListener('load', loader);
 addMovie();

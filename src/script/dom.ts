@@ -36,6 +36,7 @@ export const DOM = {
     description: document.querySelector('.description'),
     title: document.querySelector('.film_name'),
     signOut: document.querySelector('.signOut'),
-    loader: document.querySelector('.bodyLoader')
+    loader: document.querySelector('.bodyLoader'),
+    mainPageTitle: document.querySelector('.title')
 
 }
