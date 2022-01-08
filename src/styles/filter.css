@@ -1,126 +1,153 @@
 .filter {
-  position: absolute;
-  z-index: 2;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background-color: rgba(3, 2, 2, 0.698);
-}
-
-.filterPopup {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: absolute;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(3, 2, 2, 0.698);
+    padding: 15px;
 }
 
 .containerFilter {
-  background-color: #2a2d34;
-  color: #fff;
-  height: 450px;
-  width: 600px;
+    background-color: #2a2d34;
+    color: #fff;
+    height: 400px;
+    width: 650px;
 }
 
 .headerFilter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 10px 30px 10px;
 }
 
 .titleFiltersHeader {
-  margin: 5px 5px 5px 5px;
-  font-size: 22px;
+    margin: 5px 10px 5px 10px;
+    font-size: 18px;
 }
 
 .btnResetSettings {
-  margin: 10px 5px 5px 5px;
-  width: 100px;
-  height: 20px;
-  background-color: #ff5f05;
-  border-radius: 1px;
-  color: #ffffff;
-  border: none;
+    margin: 10px 5px 5px 5px;
+    width: 100px;
+    height: 20px;
+    background-color: #ff5f05;
+    border-radius: 1px;
+    color: #ffffff;
+    border: none;
 }
 
 .btnResetSettings:hover {
-  cursor: pointer;
-  background-color: #b44200;
-}
-
-.filterTitles {
-  margin: 5px 0px 25px 5px;
+    cursor: pointer;
+    background-color: #b44200;
 }
 
 #nav-block {
-  margin: 5px 0px 25px 5px;
+    margin: 5px 0px 25px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.hidden {
-  display: none;
+.chooseGenres {
+    text-align: center;
+    font-size: 18px;
+    animation: chooseGenres 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes chooseGenres {
+    from {
+        text-shadow: 0 0 5px #f5f0f0, 0 0 10px #101010, 0 0 15px #101010, 0 0 20px #101010, 0 0 25px #57aeff, 0 0 30px #57aeff, 0 0 35px #57aeff;
+    }
+    to {
+        text-shadow: 0 0 10px #f5f0f0, 0 0 15px #ff8b48, 0 0 20px #ff8b48, 0 0 25px #ff8b48, 0 0 30px #ff8b48, 0 0 35px #ff8b48, 0 0 40px #ff8b48;
+    }
+}
+
+.genres {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .genres > li {
-  display: inline-block;
-  cursor: pointer;
-  padding: 5px 15px 5px 15px;
+    font-size: 16px;
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 15px 5px 15px;
 }
 
 .genres > li:hover {
-  color: #ffaa00;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #000000;
 }
 
-.selectOther {
-  margin: 5px 0px 25px 5px;
+.filmGenresActiv {
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #000000;
+    color: #ff8b48;
 }
 
 .releaseData {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 5px 0px 35px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5px 30px 40px 30px;
 }
 
 #startData,
 #endData {
-  width: 130px;
+    width: 125px;
 }
 
 #filmId,
 #selectLanguage {
-  width: 70px;
-  margin: 5px 10px 5px 10px;
+    width: 70px;
+    margin: 5px 10px 5px 10px;
 }
 
-.releaseData {
-  width: 100%;
-  margin-bottom: 20px;
+.wraperRange {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .languageSelect {
-  display: inline-block;
+    margin-top: 15px;
+    display: inline-block;
 }
 
 .blockBtnFilter {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btnFilter {
-  background-color: #57aeff;
-  border: 0;
-  border-radius: 0;
-  color: #fff;
-  font-size: 24px;
-  width: 200px;
-  height: 40px;
-  transition: all 0.15s ease-out;
+    background-color: #57aeff;
+    border: 0;
+    border-radius: 0;
+    color: #fff;
+    font-size: 24px;
+    width: 170px;
+    height: 40px;
+    transition: all 0.15s ease-out;
 }
 
 .btnFilter:hover {
-  background-color: #024c90;
-  cursor: pointer;
+    background-color: #024c90;
+    cursor: pointer;
+}
+
+.hiddeId {
+    display: none;
+}
+
+.hidden {
+    display: none;
 }
