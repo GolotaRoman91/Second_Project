@@ -1,11 +1,12 @@
-import '../styles/loader.css'
-import '../styles/style.css'
-import '../styles/footer.css'
-import '../styles/filter.css'
-import '../styles/cartfilms.css'
-import '../styles/header.css'
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+import '../styles/loader.css';
+import '../styles/style.css';
+import '../styles/footer.css';
+import '../styles/filter.css';
+import '../styles/cartfilms.css';
+import '../styles/header.css';
+import '../styles/range.css';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import { DOM } from './dom';
 import { domElement } from './constans';
 import { loader } from './loader';
@@ -35,4 +36,4 @@ domElement.nav.addEventListener('click', getFilms);
 domElement.btnFilterFilms.addEventListener('click', showFilters);
 domElement.btnFilterFilms.addEventListener('click', resetFilter);
 domElement.btnFilter.addEventListener('click', showFilms);
-DOM.filter.addEventListener('click', closeFilter)
+DOM.filter.addEventListener('click', closeFilter);
