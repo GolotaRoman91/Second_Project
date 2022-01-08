@@ -41,7 +41,7 @@
         </div>
     </div>
     <div class="filter hidden">
-        <div class="filterPopup">
+
             <div class="containerFilter">
                 <div class="headerFilter">
                     <div class="titleFiltersHeader">
@@ -53,8 +53,8 @@
                 </div>
 
                 <div class="filterTitle">
-                    <div class="filterTitles">FILTER TITLES</div>
-                    <nav id="nav-block">Сhoose genres:
+                    <nav id="nav-block">
+                        <div class="chooseGenres">СHOOSE GENRES:</div>
                         <ul class="genres">
                             <li data-f="Action" id="1" class="filmsGenres" data-value="1">Action</li>
                             <li data-f="Comedy" id="4" class="filmsGenres" data-value="4">Comedy</li>
@@ -65,59 +65,48 @@
                         </ul>
                     </nav>
 
+                    <div class="releaseData">
+                        <label for="startData">Date of release</label>
+                        <input type="date" id="startData" value="2000-01-01" min="1900-01-01" max="2022-12-31">
+                        <label for="endData">On</label>
+                        <input type="date" id="endData" value="2021-12-03" min="1900-01-01" max="2022-12-31">
+                    </div>
+
                     <div class="wraperRange">
-                        <div class="blockRange1">
-                            <div class="values">
-                                <span id="range1">0</span>
-                                <span> &dash; </span>
-                                <span id="range2">100</span>
+                        <div class="blockRange">
+                            <div class="slider">
+                              <div class="track"></div>
                             </div>
-                            <div class="containerRange">
-                                <div class="slider-track-first"></div>
-                                <input type="range" min="0" max="100" value="10" id="slider-1" oninput="slideOne()">
-                                <input type="range" min="0" max="100" value="90" id="slider-2" oninput="slideTwo()">
-                            </div>
+                              <div class="output o0"> </div>
+                              <div class="thumb t0"></div>
+                            
+                              <div class="output o1"> </div>
+                              <div class="thumb t1"></div>
                         </div>
 
-                        <div class="blockRange2">
-                            <div class="values">
-                                <span id="range3">0</span>
-                                <span> &dash; </span>
-                                <span id="range4">100</span>
-                            </div>
-                            <div class="containerRange">
-                                <div class="slider-track-second"></div>
-                                <input type="range" min="0" max="100" value="10" id="slider-3" oninput="slideThree()">
-                                <input type="range" min="0" max="100" value="90" id="slider-4" oninput="slideFour()">
-                            </div>
+                        <div class="chooseLanguage">                       
+                             <div class="languageSelect">Language</div>
+                            <input id="selectLanguage" list="language">
+                            <datalist id="language">
+                                <option value="en">
+                                <option value="ru">
+                                <option value="ko">
+                                <option value="it">
+                            </datalist>
                         </div>
                     </div>
 
-                    <div class="selectOther">
-                        <div class="releaseData">
-                            <label for="startData">Release data first</label>
-                            <input type="date" id="startData" value="2000-01-01" min="1900-01-01" max="2022-12-31">
-                            <label for="endData">Release data last</label>
-                            <input type="date" id="endData" value="2021-12-03" min="1900-01-01" max="2022-12-31">
-                        </div>
+                    <div class="hiddeId">
                         <label for="filmId">Film By Id</label>
-                        <input type="number" id="filmId" min="1" max="9999">
-
-                        <div class="languageSelect">Language</div>
-                        <input id="selectLanguage" list="language">
-                        <datalist id="language">
-                            <option value="en">
-                            <option value="ru">
-                            <option value="ko">
-                            <option value="it">
-                        </datalist>
+                        <input type="number" id="filmId" min="1" max="9999">   
                     </div>
+
                 </div>
                 <div class="blockBtnFilter">
                     <button class="btnFilter">Filter</button>
                 </div>
             </div>
-        </div>
+  
     </div>
     </div>
     <main>
@@ -158,7 +147,7 @@
                 <div class="roman"><a target="_blank" href="https://github.com/GolotaRoman91">Roman</a></div>
                 <div class="maxim"><a target="_blank" href="https://github.com/OrlovMaks">Max</a></div>
                 <div class="sasha"><a target="_blank" href="">Alexander</a></div>
-                <div class="vladislav"><a target="_blank" href="">Vladislav</a></div>
+                <div class="vladislav"><a target="_blank" href="https://github.com/VlTonko">Vladislav</a></div>
             </div>
         </div>
         <div class="lodoDevEducation"></div>
