@@ -81,6 +81,12 @@ export function changeColorGenres(evt: any) {
     evt.target.classList.toggle('filmGenresActiv');
 }
 
+export function closeFilter(evt) {
+    if (evt.target.className === 'filter') {
+        openCloseFilters()
+    } 
+}
+
 export const resetFilter = (): void => {
     filterData.genre_ids = [];
     filterData.id = null;
@@ -92,9 +98,10 @@ export const resetFilter = (): void => {
     variable.skip = 0;
     constants.filteredFilms = [];
     creatFirstPage(constants.movies, 0);
-    domElement.containerFilter.style.display = 'none';
-    DOM.filter.classList.toggle('hidden');
+    // domElement.containerFilter.style.display = 'none';
+    // DOM.filter.classList.toggle('hidden');
     clearFiltersGenres();
+    (<HTMLInputElement>document.querySelector('#selectLanguage')).value = '';
 };
 
 function clearFiltersGenres() {
