@@ -13,6 +13,8 @@ import { loader } from './loader';
 import { signIn, modal, toSignIn, toSignUp, signOut } from './autorization';
 import { addMovie } from './showMovie';
 import { resetFilter, openCloseFilters, changeColorGenres, filterByLanguage, filterByiD, getFilms, showFilters, showFilms, closeFilter } from './filters';
+import { dualRangeSlider } from './range';
+
 
 require('../image/arrow_left.png');
 require('../image/arrow_right.png');
@@ -20,6 +22,9 @@ require('../image/bg.jpg');
 require('../image/Logo.png');
 require('../image/favicon.png');
 
+window.addEventListener('DOMContentLoaded', () => {
+    new dualRangeSlider(document.querySelector('.dual-range') as HTMLInputElement);
+});
 window.addEventListener('load', loader);
 addMovie();
 DOM.signInButt.addEventListener('click', signIn);
