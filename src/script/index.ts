@@ -40,6 +40,6 @@ domElement.selectLanguage.addEventListener('change', filterByLanguage);
 domElement.filmId.addEventListener('change', filterByiD);
 domElement.nav.addEventListener('click', getFilms);
 domElement.btnFilterFilms.addEventListener('click', showFilters);
-domElement.btnFilterFilms.addEventListener('click', resetFilter);
+// domElement.btnFilterFilms.addEventListener('click', resetFilter);
 domElement.btnFilter.addEventListener('click', showFilms);
 DOM.filter.addEventListener('click', closeFilter);
