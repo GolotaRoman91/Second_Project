@@ -6,7 +6,10 @@
 }
 
 .movieBudget {
+    margin-bottom: 5px;
     text-align: center;
+    font-size: 25px;
+    font-weight: 700;
 }
 
 .center {
@@ -38,6 +41,7 @@
     position: relative;
     user-select: none;
     margin-top: 20px;
+    margin-left: 65px;
 }
 .dual-range .highlight {
     position: absolute;
