@@ -7,9 +7,11 @@
 
 .movieBudget {
     margin-bottom: 5px;
+    margin-top: 0;
     text-align: center;
     font-size: 25px;
     font-weight: 700;
+    animation: chooseGenres 1s ease-in-out infinite alternate;
 }
 
 .center {
@@ -41,7 +43,7 @@
     position: relative;
     user-select: none;
     margin-top: 20px;
-    margin-left: 65px;
+    margin-left: 50px;
 }
 .dual-range .highlight {
     position: absolute;

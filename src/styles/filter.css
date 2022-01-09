@@ -12,10 +12,12 @@
 }
 
 .containerFilter {
-    background-color: #2a2d34;
+    background-color: #2a2d34da;
     color: #fff;
-    height: 600px;
+    height: 550px;
     width: 650px;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .headerFilter {
@@ -34,17 +36,20 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    
 
 }
 
 .btnResetSettings {
-    margin: 20px 5px 5px 5px;
-    width: 100px;
-    height: 20px;
+    margin-right:45px;
     background-color: #ff5f05;
-    border-radius: 1px;
-    color: #ffffff;
-    border: none;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 24px;
+    width: 170px;
+    height: 40px;
+    transition: all 0.15s ease-out;
 }
 
 .btnResetSettings:hover {
@@ -53,15 +58,16 @@
 }
 
 #nav-block {
-    margin: 5px 0px 25px 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: solid #5f5f5f ;
+    border-width:6px 6px 3px 6px ;
+    border-radius: 10px 10px 0 0;
 }
 
 .chooseGenres {
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 10px;
     text-align: center;
     font-size: 30px;
     font-weight: 700;
@@ -69,9 +75,11 @@
 }
 @keyframes chooseGenres {
     from {
+        /* color:#ff8b48; */
         text-shadow: 0 0 5px #f5f0f0, 0 0 10px #101010, 0 0 15px #101010, 0 0 20px #101010, 0 0 25px #57aeff, 0 0 30px #57aeff, 0 0 35px #57aeff;
     }
     to {
+        /* color:#57aeff; */
         text-shadow: 0 0 10px #f5f0f0, 0 0 15px #ff8b48, 0 0 20px #ff8b48, 0 0 25px #ff8b48, 0 0 30px #ff8b48, 0 0 35px #ff8b48, 0 0 40px #ff8b48;
     }
 }
@@ -107,8 +115,11 @@
 .releaseData {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content:center;
     margin: 5px 30px 20px 30px;
+}
+.releaseData label{
+    margin-top: 1px;
 }
 
 #startData,
@@ -119,15 +130,25 @@
 #filmId,
 #selectLanguage {
     width: 70px;
-    margin: 5px 10px 5px 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 5px;
+    background-color: #f5f0f0ad;
+    outline: none;
 }
 
 
 .chooseLanguage {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 20px;
+    align-items: center;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 700;
+    border: solid #5f5f5f ;
+    border-width:3px 6px 6px 6px ;
+    border-radius: 0 0 10px 10px;
+    animation: chooseGenres 1s ease-in-out infinite alternate;
 }
 
 .languageSelect {
@@ -143,9 +164,10 @@
 }
 
 .btnFilter {
+    margin-left: 45px;
     background-color: #57aeff;
     border: 0;
-    border-radius: 0;
+    border-radius: 5px;
     color: #fff;
     font-size: 24px;
     width: 170px;
@@ -164,4 +186,53 @@
 
 .hidden {
     display: none;
+}
+#startData{
+    margin-left: 5px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: azure;
+    font-size: 16px;
+}
+#startData::-webkit-datetime-edit { padding-top: 0px; margin-right: 0; }
+#startData::-webkit-calendar-picker-indicator { cursor: pointer; margin-left:90px; margin-bottom: 3px; filter: invert(1);position: absolute;}
+
+.onRelease{
+    margin-left: 20px;
+}
+#endData{
+    margin-left: 5px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: azure;
+    font-size: 16px;
+}
+#endData::-webkit-calendar-picker-indicator { cursor: pointer; margin-left:90px; margin-bottom: 3px; filter: invert(1);position: absolute;}
+.wrapperData{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid #5f5f5f ;
+    border-width:3px 6px 3px 6px ;
+    padding-top: 10px;
+}
+.dataTitle{
+    margin: 0;
+    font-size: 25px;
+    font-weight: 700;
+    animation: chooseGenres 1s ease-in-out infinite alternate;
+}
+.blockRange{
+    border: solid #5f5f5f ;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-width:3px 6px 3px 6px ;
 }

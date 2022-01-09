@@ -80,11 +80,14 @@
                     </ul>
                 </nav>
 
-                <div class="releaseData">
-                    <label for="startData">Date of release</label>
-                    <input type="date" id="startData" value="2000-01-01" min="1900-01-01" max="2022-12-31">
-                    <label for="endData">On</label>
-                    <input type="date" id="endData" value="2021-12-03" min="1900-01-01" max="2022-12-31">
+                <div class="wrapperData">
+                    <p class="dataTitle">Data</p>
+                    <div class="releaseData">
+                        <label for="startData">Date of release: </label>
+                        <input type="date" id="startData" value="2000-01-01" min="1900-01-01" max="2022-12-31">
+                        <label for="endData"><span class="onRelease">On:</span></label>
+                        <input type="date" id="endData" value="2021-12-03" min="1900-01-01" max="2022-12-31">
+                    </div>
                 </div>
 
                 <div class="wraperRange">
@@ -115,11 +118,13 @@
                 </div>
             </div>
             <div class="blockBtnFilter">
-                <button class="btnFilter">Filter</button>
-            </div>
-            <div class="resetBtn">
                 <button class="btnResetSettings">Reset filters</button>
+                <button class="btnFilter">Filter</button>
+
             </div>
+            <!-- <div class="resetBtn">
+                <button class="btnResetSettings">Reset filters</button>
+            </div> -->
         </div>
 
     </div>
@@ -131,7 +136,7 @@
                             alt=""></a></div>
                 <div class="navigationRight hidden">
                     <div class="home"><a href="http://localhost:4200/">HOME</a></div>
-                    <div class="second">SECOND</div>
+                    <div class="second"><a href="https://deveducation.com/">ABOUT US</a> </div>
                     <div class="signOut">SIGN OUT</div>
                 </div>
             </nav>
@@ -161,7 +166,7 @@
             <div class="developers">
                 <div class="roman"><a target="_blank" href="https://github.com/GolotaRoman91">Roman</a></div>
                 <div class="maxim"><a target="_blank" href="https://github.com/OrlovMaks">Max</a></div>
-                <div class="sasha"><a target="_blank" href="">Alexander</a></div>
+                <div class="sasha"><a target="_blank" href="https://github.com/StepanChewbacca">Alexander</a></div>
                 <div class="vladislav"><a target="_blank" href="https://github.com/VlTonko">Vladislav</a></div>
             </div>
         </div>
