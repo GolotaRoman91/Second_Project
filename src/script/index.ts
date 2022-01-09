@@ -7,6 +7,7 @@ import '../styles/header.css';
 import '../styles/range.css';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+window.addEventListener('load', loader);
 import { DOM } from './dom';
 import { domElement } from './constans';
 import { loader } from './loader';
@@ -21,11 +22,11 @@ require('../image/arrow_right.png');
 require('../image/bg.jpg');
 require('../image/Logo.png');
 require('../image/favicon.png');
+require('../image/newlogo.png');
 
 window.addEventListener('DOMContentLoaded', () => {
     new dualRangeSlider(document.querySelector('.dual-range') as HTMLInputElement);
 });
-window.addEventListener('load', loader);
 addMovie();
 DOM.signInButt.addEventListener('click', signIn);
 DOM.signUpButt.addEventListener('click', modal);
