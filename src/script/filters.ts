@@ -30,7 +30,7 @@ export const filterByLanguage = (evt: Event): void => {
 
 const handFiltGenre = (movies: movie[], genresList) => {
     const temporaryArr = [];
-
+    // Фильтер массива по жанрам
     movies.forEach(movie => {
         genresList.forEach(genre => {
             if (movie.genres.includes(genre) && !temporaryArr.includes(movie)) {
@@ -54,8 +54,20 @@ const handleById = (movies: movie[], key: string, value: string): string[] => {
     return temporaryArr;
 };
 
+// const handleByBudget = (movies) => {
+//     const temporaryArr = [];
+
+    
+//     movies.forEach(movie => {
+//         if (movie.budget >=  DOM.minBudget && movie.budget <= DOM.maxBudget) {
+//             return temporaryArr.push(movie);
+//         }
+//     })
+// }
+
 export const showFilms = () => {
     const filtredByGenre = handFiltGenre(constants.movies, filterData.genre_ids);
+    // const filterByBudget = handleByBudget(filtredByGenre.length ? filtredByGenre : constants.movies);
     const filteredById = handleById(filtredByGenre.length ? filtredByGenre : constants.movies, 'id', filterData.id);
     const filteredByLang = handleById(filtredByGenre.length ? filtredByGenre : constants.movies, 'original_language', filterData.original_language);
 

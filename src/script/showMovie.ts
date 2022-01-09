@@ -71,7 +71,7 @@ function scrollRight(movies: movie[]): void {
     }
 }
 domElement.movieContainer.onclick = function (event: MouseEvent) {
-    let target = event.target;
+    const target = event.target;
     if ((<HTMLElement>target).className === "cartFilms") {
         return
     } else {

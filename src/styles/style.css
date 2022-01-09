@@ -75,7 +75,7 @@ main {
 }
 .cartFilm:hover .descriptionWrapper{
   opacity: 1;
-  transform: translateY(-100%);
+  transform: translateY(-115%);
 }
 
 .cartFilm {
@@ -253,6 +253,8 @@ main {
 }
 
 .descriptionWrapper {
+  width: 100%;
+  min-height: 50px;
   position: absolute;
   transition: 0.3s;
   opacity: 0;

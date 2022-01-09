@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 export class dualRangeSlider {
     constructor(rangeElement) {
         // @ts-ignore
@@ -5,7 +6,7 @@ export class dualRangeSlider {
         // @ts-ignore
         this.min = Number(rangeElement.dataset.min);
         // @ts-ignore
-        this.max = Number(rangeElement.dataset.max);
+        this.max = 258000000;
         // @ts-ignore
         this.handles = [...this.range.querySelectorAll('.handle')];
         // @ts-ignore
@@ -29,7 +30,7 @@ export class dualRangeSlider {
         // @ts-ignore
         this.range.style.setProperty('--x-1', '0px');
         // @ts-ignore
-        this.range.style.setProperty('--x-2', '250px');
+        this.range.style.setProperty('--x-2', '500px');
         // @ts-ignore
         this.handles[0].dataset.value = this.range.dataset.min;
         // @ts-ignore

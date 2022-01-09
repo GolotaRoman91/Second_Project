@@ -111,10 +111,7 @@
 }
 
 .wraperRange {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 250px;
+    margin-left: 75px;
 }
 
 .chooseLanguage {

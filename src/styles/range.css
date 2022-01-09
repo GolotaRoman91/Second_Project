@@ -29,7 +29,7 @@
 }
 .dual-range {
     --range-size: 17px;
-    --range-width: 250px;
+    --range-width: 500px;
     --handle-size: 1.1;
     height: var(--range-size);
     width: var(--range-width);

@@ -38,5 +38,7 @@ export const DOM = {
     signOut: document.querySelector('.signOut'),
     loader: document.querySelector('.bodyLoader'),
     mainPageTitle: document.querySelector('.title'),
-    trailer: document.querySelector('.trailer')
+    trailer: document.querySelector('.trailer'),
+    minBudget: (<HTMLInputElement>document.querySelector('.left')).dataset.value,
+    maxBudget: (<HTMLInputElement>document.querySelector('.right')).dataset.value
 }
