@@ -39,6 +39,6 @@ export const DOM = {
     loader: document.querySelector('.bodyLoader'),
     mainPageTitle: document.querySelector('.title'),
     trailer: document.querySelector('.trailer'),
-    minBudget: (<HTMLInputElement>document.querySelector('.left')).dataset.value,
-    maxBudget: (<HTMLInputElement>document.querySelector('.right')).dataset.value
+    minBudget: document.querySelector('.left') as HTMLInputElement,
+    maxBudget: document.querySelector('.right') as HTMLInputElement
 }

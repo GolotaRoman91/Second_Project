@@ -4,7 +4,7 @@ export class dualRangeSlider {
         // @ts-ignore
         this.range = rangeElement;
         // @ts-ignore
-        this.min = Number(rangeElement.dataset.min);
+        this.min = 0;
         // @ts-ignore
         this.max = 258000000;
         // @ts-ignore

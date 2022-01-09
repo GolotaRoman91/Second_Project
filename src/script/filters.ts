@@ -54,32 +54,47 @@ const handleById = (movies: movie[], key: string, value: string): string[] => {
     return temporaryArr;
 };
 
-// const handleByBudget = (movies) => {
-//     const temporaryArr = [];
+const handleByBudget = (movies): any => {
+    const temporaryArr = [];
+    movies.forEach(movie => {
+        if (movie.budget >=  DOM.minBudget.dataset.value && movie.budget <= DOM.maxBudget.dataset.value) {
+            console.log(DOM.minBudget.dataset.value);
+            console.log(DOM.maxBudget.dataset.value);
+            temporaryArr.push(movie);
+        }
+    })
 
-    
-//     movies.forEach(movie => {
-//         if (movie.budget >=  DOM.minBudget && movie.budget <= DOM.maxBudget) {
-//             return temporaryArr.push(movie);
-//         }
-//     })
-// }
+    return temporaryArr;
+}
 
 export const showFilms = () => {
+    // let filteredFilms = [];
     const filtredByGenre = handFiltGenre(constants.movies, filterData.genre_ids);
-    // const filterByBudget = handleByBudget(filtredByGenre.length ? filtredByGenre : constants.movies);
+    const filterByBudget = handleByBudget(filtredByGenre.length ? filtredByGenre : constants.movies);
     const filteredById = handleById(filtredByGenre.length ? filtredByGenre : constants.movies, 'id', filterData.id);
     const filteredByLang = handleById(filtredByGenre.length ? filtredByGenre : constants.movies, 'original_language', filterData.original_language);
 
     if (filteredById.length) {
         constants.filteredFilms = [...filteredById];
-    } else if (filteredByLang.length) {
-        constants.filteredFilms = [];
+        console.log('+')
+    }  
+    if (filteredByLang.length) {
+        // constants.filteredFilms = [];
         constants.filteredFilms = [...filteredByLang];
-    } else if (filtredByGenre.length) {
-        constants.filteredFilms = [];
+        console.log('++')
+    } 
+    if (filtredByGenre.length) {
+        // constants.filteredFilms = [];
         constants.filteredFilms = [...filtredByGenre];
+        console.log('+++')
     }
+    if (filterByBudget.length) {
+        // constants.filteredFilms = [];
+        constants.filteredFilms = [...filterByBudget];
+        console.log('++++')
+    }
+
+    console.log(constants.filteredFilms.length);
 
     creatFirstPage(constants.filteredFilms, 0);
     DOM.filter.classList.toggle('hidden');
