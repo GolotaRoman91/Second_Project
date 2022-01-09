@@ -29,7 +29,7 @@ export class dualRangeSlider {
         // @ts-ignore
         this.range.style.setProperty('--x-1', '0px');
         // @ts-ignore
-        this.range.style.setProperty('--x-2', rangeRect.width - handleRect.width / 2 + 'px');
+        this.range.style.setProperty('--x-2', '250px');
         // @ts-ignore
         this.handles[0].dataset.value = this.range.dataset.min;
         // @ts-ignore

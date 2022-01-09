@@ -7,20 +7,26 @@ import '../styles/header.css';
 import '../styles/range.css';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+window.addEventListener('load', loader);
 import { DOM } from './dom';
 import { domElement } from './constans';
 import { loader } from './loader';
 import { signIn, modal, toSignIn, toSignUp, signOut } from './autorization';
 import { addMovie } from './showMovie';
 import { resetFilter, openCloseFilters, changeColorGenres, filterByLanguage, filterByiD, getFilms, showFilters, showFilms, closeFilter } from './filters';
+import { dualRangeSlider } from './range';
+
 
 require('../image/arrow_left.png');
 require('../image/arrow_right.png');
 require('../image/bg.jpg');
 require('../image/Logo.png');
 require('../image/favicon.png');
+require('../image/newlogo.png');
 
-window.addEventListener('load', loader);
+window.addEventListener('DOMContentLoaded', () => {
+    new dualRangeSlider(document.querySelector('.dual-range') as HTMLInputElement);
+});
 addMovie();
 DOM.signInButt.addEventListener('click', signIn);
 DOM.signUpButt.addEventListener('click', modal);

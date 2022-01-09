@@ -1,7 +1,7 @@
 import { movie } from "./types";
 export const constants = {
     URLIMG: 'https://image.tmdb.org/t/p/original',
-    requestURLMovie: 'https://wowmeup.pp.ua/movie?_limit=100',
+    requestURLMovie: 'http://127.0.0.1:3001/movies?page=1&perPage=100',
     movies: [] as movie[],
     movieOnPage: 5,
     filteredFilms: [],

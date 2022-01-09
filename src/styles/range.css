@@ -47,7 +47,6 @@
     background: var(--clr-prim);
     z-index: 1;
     border-radius: 50px;
-    max-width: 250px;
 }
 .dual-range .handle {
     width: calc(var(--range-size) * var(--handle-size));
