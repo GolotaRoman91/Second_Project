@@ -40,5 +40,7 @@ export const DOM = {
     mainPageTitle: document.querySelector('.title'),
     trailer: document.querySelector('.trailer'),
     minBudget: document.querySelector('.left') as HTMLInputElement,
-    maxBudget: document.querySelector('.right') as HTMLInputElement
+    maxBudget: document.querySelector('.right') as HTMLInputElement,
+    minDate: document.querySelector('#startData') as HTMLInputElement,
+    maxDate: document.querySelector('#endData') as HTMLInputElement
 }

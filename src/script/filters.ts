@@ -67,22 +67,29 @@ const handleByBudget = (movies): any => {
     return temporaryArr;
 }
 
+const handleByData = (movies): any => {
+    const temporaryArr = [];
+    movies.forEach(movie => {
+        if (new Date(movie.release_date).getTime() >= new Date(DOM.minDate.value).getTime() 
+        && new Date(movie.release_date).getTime() <= new Date(DOM.maxDate.value).getTime()) 
+        {
+            temporaryArr.push(movie);
+        }
+    })
+
+    return temporaryArr;
+}
+
 export const showFilms = () => {
-    // let filteredFilms = [];
     const filtredByGenre = handFiltGenre(constants.movies, filterData.genre_ids);
     const filterByBudget = handleByBudget(filtredByGenre.length ? filtredByGenre : constants.movies);
-    const filteredById = handleById(filtredByGenre.length ? filtredByGenre : constants.movies, 'id', filterData.id);
-    const filteredByLang = handleById(filtredByGenre.length ? filtredByGenre : constants.movies, 'original_language', filterData.original_language);
 
-    if (filteredById.length) {
-        constants.filteredFilms = [...filteredById];
-        console.log('+')
-    }  
-    if (filteredByLang.length) {
-        // constants.filteredFilms = [];
-        constants.filteredFilms = [...filteredByLang];
-        console.log('++')
-    } 
+    const filteredData = handleByData(filtredByGenre.length ? filterByBudget ?? filtredByGenre: constants.movies);
+    const filteredByLang = handleById(filtredByGenre.length ? filteredData ?? filtredByGenre ?? filterByBudget: constants.movies, 'original_language', filterData.original_language);
+    console.log('----------------------------------------------------------');
+    console.log(filteredByLang);
+    console.log('----------------------------------------------------------');
+
     if (filtredByGenre.length) {
         // constants.filteredFilms = [];
         constants.filteredFilms = [...filtredByGenre];
@@ -93,6 +100,16 @@ export const showFilms = () => {
         constants.filteredFilms = [...filterByBudget];
         console.log('++++')
     }
+    if (filteredData.length) {
+        constants.filteredFilms = [...filteredData];
+        console.log('+')
+    }
+    if (filteredByLang.length) {
+        // constants.filteredFilms = [];
+        constants.filteredFilms = [...filteredByLang];
+        console.log('++')
+    } 
+
 
     console.log(constants.filteredFilms.length);
 
