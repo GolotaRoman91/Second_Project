@@ -70,6 +70,7 @@ function sliceDate(release_date: string | string[]): string | string[] {
 
 function renderMovieData(movie: { backdrop_path: string; original_title: string; original_language: string; release_date: string; movie_rate: string; adult: boolean; revenue: string; popularity: string; overview: string; title: string; genres: string; trailer: string }): void {
     DOM.poster.src = `${constants.URLIMG}${movie.backdrop_path}`
+    DOM.trailer.setAttribute('src', `https://www.youtube.com/embed/${movie.trailer}`);
     setData(movie.title, DOM.mainPageTitle);
     setData(movie.original_title, DOM.originalTitle);
     setData(movie.original_language, DOM.language);
@@ -81,7 +82,6 @@ function renderMovieData(movie: { backdrop_path: string; original_title: string;
     setData(movie.overview, DOM.description);
     setData(movie.title, DOM.title);
     setData(movie.genres, DOM.filmGenres);
-    DOM.trailer.setAttribute('src', `https://www.youtube.com/embed/${movie.trailer}`);
 }
 
 

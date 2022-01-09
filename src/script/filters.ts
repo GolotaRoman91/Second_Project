@@ -57,7 +57,7 @@ const handleById = (movies: movie[], key: string, value: string): string[] => {
 const handleByBudget = (movies): any => {
     const temporaryArr = [];
     movies.forEach(movie => {
-        if (movie.budget >=  DOM.minBudget.dataset.value && movie.budget <= DOM.maxBudget.dataset.value) {
+        if (movie.budget >= DOM.minBudget.dataset.value && movie.budget <= DOM.maxBudget.dataset.value) {
             console.log(DOM.minBudget.dataset.value);
             console.log(DOM.maxBudget.dataset.value);
             temporaryArr.push(movie);
@@ -70,9 +70,8 @@ const handleByBudget = (movies): any => {
 const handleByData = (movies): any => {
     const temporaryArr = [];
     movies.forEach(movie => {
-        if (new Date(movie.release_date).getTime() >= new Date(DOM.minDate.value).getTime() 
-        && new Date(movie.release_date).getTime() <= new Date(DOM.maxDate.value).getTime()) 
-        {
+        if (new Date(movie.release_date).getTime() >= new Date(DOM.minDate.value).getTime()
+            && new Date(movie.release_date).getTime() <= new Date(DOM.maxDate.value).getTime()) {
             temporaryArr.push(movie);
         }
     })
@@ -84,8 +83,8 @@ export const showFilms = () => {
     const filtredByGenre = handFiltGenre(constants.movies, filterData.genre_ids);
     const filterByBudget = handleByBudget(filtredByGenre.length ? filtredByGenre : constants.movies);
 
-    const filteredData = handleByData(filtredByGenre.length ? filterByBudget ?? filtredByGenre: constants.movies);
-    const filteredByLang = handleById(filtredByGenre.length ? filteredData ?? filtredByGenre ?? filterByBudget: constants.movies, 'original_language', filterData.original_language);
+    const filteredData = handleByData(filtredByGenre.length ? filterByBudget ?? filtredByGenre : constants.movies);
+    const filteredByLang = handleById(filtredByGenre.length ? filteredData ?? filtredByGenre ?? filterByBudget : constants.movies, 'original_language', filterData.original_language);
     console.log('----------------------------------------------------------');
     console.log(filteredByLang);
     console.log('----------------------------------------------------------');
@@ -108,12 +107,12 @@ export const showFilms = () => {
         // constants.filteredFilms = [];
         constants.filteredFilms = [...filteredByLang];
         console.log('++')
-    } 
+    }
 
 
     console.log(constants.filteredFilms.length);
 
-    creatFirstPage(constants.filteredFilms, 0);
+    creatFirstPage(constants.filteredFilms, 1);
     DOM.filter.classList.toggle('hidden');
 };
 
