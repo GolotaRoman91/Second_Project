@@ -18,8 +18,9 @@ loader()
 
 const getGenres = async (genres_ids: number[]): Promise<string> => {
     try {
-        const response = await axios.get('https://wowmeup.pp.ua/genres');
-        const genres = response.data.genres
+        const response = await axios.get('http://127.0.0.1:3001/genres');
+        console.log(genres_ids)
+        const genres = response.data
         return setGenresForMovie(genres, genres_ids)
 
     } catch (error) {
@@ -28,20 +29,22 @@ const getGenres = async (genres_ids: number[]): Promise<string> => {
 
 }
 
-function setGenresForMovie(genres: genresType[], genres_ids: number[]): string {
+function setGenresForMovie(genres: genresType[], genres_ids: any[]): string {
     genres_ids = [...new Set(genres_ids)]
     let stringGenres = ''
-    genres_ids.forEach(elem => {
-        stringGenres += genres[elem - 1].name + ', '
+    let filteredGeners = genres.filter(el => genres_ids.includes(el.id));
+    filteredGeners.forEach(elem => {
+        stringGenres += elem.name + ', '
     })
     return stringGenres.slice(0, stringGenres.length - 2)
 }
 
 const getMovie = async (): Promise<void> => {
     try {
-        const response = await axios.get(`https://wowmeup.pp.ua/movie/${constants.idMovie}`);
-        const movie = response.data.movie
-        movie.genre_ids = await getGenres(movie.genre_ids)
+        const response = await axios.get(`http://127.0.0.1:3001/movies/id?id=${constants.idMovie}`);
+        console.log(response)
+        const movie = response.data[0]
+        movie.genres = await getGenres(movie.genres)
         renderMovieData(movie)
     } catch (error) {
         console.error(error);
@@ -65,19 +68,20 @@ function sliceDate(release_date: string | string[]): string | string[] {
     return release_date.slice(0, 10);
 }
 
-function renderMovieData(movie: { backdrop_path: string; original_title: string; original_language: string; release_date: string; movie_rate: string; adult: boolean; revenue: string; popularity: string; overview: string; title: string; genre_ids: string; }): void {
+function renderMovieData(movie: { backdrop_path: string; original_title: string; original_language: string; release_date: string; movie_rate: string; adult: boolean; revenue: string; popularity: string; overview: string; title: string; genres: string; trailer: string }): void {
     DOM.poster.src = `${constants.URLIMG}${movie.backdrop_path}`
-    setData(movie.title, DOM.mainPageTitle)
-    setData(movie.original_title, DOM.originalTitle)
-    setData(movie.original_language, DOM.language)
-    setData(sliceDate(movie.release_date), DOM.date)
-    setData(movie.movie_rate, DOM.rate)
-    setData(isAdult(movie.adult), DOM.filmAdult)
-    setData(movie.revenue, DOM.filmRevenue)
-    setData(movie.popularity, DOM.filmPopularity)
-    setData(movie.overview, DOM.description)
-    setData(movie.title, DOM.title)
-    setData(movie.genre_ids, DOM.filmGenres)
+    setData(movie.title, DOM.mainPageTitle);
+    setData(movie.original_title, DOM.originalTitle);
+    setData(movie.original_language, DOM.language);
+    setData(sliceDate(movie.release_date), DOM.date);
+    // setData(movie.movie_rate, DOM.rate);
+    setData(isAdult(movie.adult), DOM.filmAdult);
+    setData(movie.revenue, DOM.filmRevenue);
+    setData(movie.popularity, DOM.filmPopularity);
+    setData(movie.overview, DOM.description);
+    setData(movie.title, DOM.title);
+    setData(movie.genres, DOM.filmGenres);
+    DOM.trailer.setAttribute('src', `https://www.youtube.com/embed/${movie.trailer}`);
 }
 
 

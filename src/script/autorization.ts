@@ -31,18 +31,18 @@ export async function modal(): Promise<void> {
 }
 async function checkResponse(data: any, bodySignUp: bodySignUp): Promise<void> {
     switch (true) {
-        case (data.message === "Registration successful"): {
+        case (data === "Registration successful"): {
             DOM.wrapUp.classList.add("hidden"),
                 DOM.wrapIn.classList.remove("hidden")
             break;
         }
-        case (data.message === `User with login ${bodySignUp.login} already exist`): {
+        case (data === `User with login ${bodySignUp.login} already exist`): {
             console.log(data.message)
             DOM.outputUp.innerHTML = data.message;
             break;
         }
-        case (!!data.password): {
-            DOM.outputUp.innerHTML = data.password;
+        case (!!data.message.status): {
+            DOM.outputUp.innerHTML = data.message.data;
             break;
         }
         case (!!data.first_name): {
@@ -72,6 +72,7 @@ export function checkToken(): void {
 
 }
 async function sendRequestSignIn(method: string, url: string, body: bodySignIn) {
+    console.log(body)
     try {
         const headers = {
             'Content-Type': 'application/json'
@@ -82,7 +83,7 @@ async function sendRequestSignIn(method: string, url: string, body: bodySignIn) 
             headers
         });
         const data = await response.json()
-        if (data.userId) {
+        if (data.accessToken) {
             return data;
         } else {
             throw new Error()
@@ -100,7 +101,7 @@ export async function signIn(): Promise<void> {
     if (result === "Invalid data") {
         DOM.outputIn.innerHTML = "Invalid password or username"
     } else {
-        localStorage.setItem('token', JSON.stringify(result))
+        localStorage.setItem('token', JSON.stringify(result.accessToken))
     }
     checkToken()
 }

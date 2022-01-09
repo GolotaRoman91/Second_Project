@@ -33,7 +33,7 @@ const handFiltGenre = (movies: movie[], genresList) => {
 
     movies.forEach(movie => {
         genresList.forEach(genre => {
-            if (movie.genre_ids.includes(genre) && !temporaryArr.includes(movie)) {
+            if (movie.genres.includes(genre) && !temporaryArr.includes(movie)) {
                 return temporaryArr.push(movie);
             }
         });
@@ -84,7 +84,7 @@ export function changeColorGenres(evt: any) {
 export function closeFilter(evt) {
     if (evt.target.className === 'filter') {
         openCloseFilters()
-    } 
+    }
 }
 
 export const resetFilter = (): void => {

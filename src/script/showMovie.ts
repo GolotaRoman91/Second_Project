@@ -5,12 +5,13 @@ import { movie } from "./types";
 export async function addMovie() {
     await fetch(constants.requestURLMovie)
         .then(response => response.json())
-        .then((data) => data.movies.forEach((obj) => constants.movies.push(obj)))
+        .then((data) => data.forEach((obj) => constants.movies.push(obj)))
         .then(() => creatFirstPage(constants.movies, variable.skip))
         .then(() => variable.numbersPage = Math.ceil(constants.movies.length / constants.movieOnPage))
         .catch(error => console.log(error))
 }
 export function creatFirstPage(movies: movie[], skip: number): void {
+    console.log(movies)
     domElement.movieContainer.innerHTML = "";
     variable.currentPage = Math.ceil(movies.length / 5);
 
@@ -75,6 +76,7 @@ domElement.movieContainer.onclick = function (event: MouseEvent) {
         return
     } else {
         const currentFilmId = (<HTMLElement>target).parentElement.id
+        console.log(currentFilmId)
         window.open(`./moviePage.html#${currentFilmId}`)
     }
 }

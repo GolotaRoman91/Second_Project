@@ -14,7 +14,7 @@ export type movie = {
     adult: boolean,
     backdrop_path: string,
     budget: number,
-    genre_ids: number[],
+    genres: number[],
     homepage: string,
     id: number,
     imdb_id: string,

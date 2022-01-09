@@ -13,8 +13,8 @@ export const DOM = {
     outputIn: document.querySelector('.outputIn') as HTMLLIElement,
     signUpButt: document.querySelector('.signUpButt') as HTMLButtonElement,
     signInButt: document.querySelector('.signInButt') as HTMLButtonElement,
-    requestURl: 'https://wowmeup.pp.ua/user/sing_up',
-    requestURlsignIn: 'https://wowmeup.pp.ua/user/sign_in',
+    requestURl: 'http://127.0.0.1:3001/sign_up',
+    requestURlsignIn: 'http://127.0.0.1:3001/sign_in',
     wrapIn: document.querySelector('.wrapIn') as HTMLLIElement,
     wrapUp: document.querySelector('.wrapUp') as HTMLLIElement,
     registr: document.querySelector('.registr') as HTMLLIElement,
@@ -27,7 +27,7 @@ export const DOM = {
     originalTitle: document.querySelector('.film_original_name'),
     date: document.querySelector('.film_date'),
     filmGenres: document.querySelector('.film_genres'),
-    rate: document.querySelector('.film_rate'),
+    // rate: document.querySelector('.film_rate'),
     filmRevenue: document.querySelector('.film_revenue'),
     filmAdult: document.querySelector('.film_adult'),
     filmPopularity: document.querySelector('.film_popularity'),
@@ -37,6 +37,6 @@ export const DOM = {
     title: document.querySelector('.film_name'),
     signOut: document.querySelector('.signOut'),
     loader: document.querySelector('.bodyLoader'),
-    mainPageTitle: document.querySelector('.title')
-
+    mainPageTitle: document.querySelector('.title'),
+    trailer: document.querySelector('.trailer')
 }
