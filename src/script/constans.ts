@@ -24,7 +24,7 @@ export const domElement = {
     minNumberBudget: document.querySelector('.minNumberBudget') as HTMLElement,
     maxNumberBudget: document.querySelector('.maxNumberBudget') as HTMLElement,
     filmId: document.getElementById('filmId') as HTMLElement,
-    selectLanguage: document.getElementById('selectLanguage') as HTMLElement,
+    selectLanguage: document.getElementById('selectLanguage') as HTMLInputElement,
     containerFilter: document.querySelector('.containerFilter') as HTMLElement,
     btnFilterFilms: document.querySelector('.btnFilterFilms') as HTMLElement,
     btnResetSettings: document.querySelector('.btnResetSettings') as HTMLElement,
@@ -42,7 +42,7 @@ export const variable = {
 };
 
 export const filterData = {
-    genre_ids: [],
+    genre_ids: null,
     id: null,
     release_date: null,
     original_language: null,

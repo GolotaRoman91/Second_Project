@@ -6,7 +6,7 @@ export class dualRangeSlider {
         // @ts-ignore
         this.min = 0;
         // @ts-ignore
-        this.max = 258000000;
+        this.max = 300000000;
         // @ts-ignore
         this.handles = [...this.range.querySelectorAll('.handle')];
         // @ts-ignore
