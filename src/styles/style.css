@@ -266,6 +266,10 @@ main {
   font-weight: 700;
   color: #fff;
 }
+.cartFilmTitle{
+  color: #fc8039;
+  font-weight: 700;
+}
 
 
 /* .descriptionWrapperShow {

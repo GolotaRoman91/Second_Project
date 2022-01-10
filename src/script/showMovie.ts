@@ -39,8 +39,7 @@ function createPost(film: movie, imageSrc: string) {
          <div class="cartFilm slider__item" id="${film.id}">
             <img src=${imageSrc} class="poster">
             <div class="descriptionWrapper">
-                ${film.title}
-                ${film.popularity}
+                <span class="cartFilmTitle">${film.title}:</span>
                 ${film.tagline}
             </div>
          </div>

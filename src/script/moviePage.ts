@@ -3,7 +3,7 @@ import '../styles/moviePage.css'
 import '../styles/footer.css'
 import '../styles/header.css'
 require('../image/bg.jpg');
-require('../image/adv.gif');
+require('../image/advvv.gif');
 require('../image/tempMovieImage.jpg');
 require('../image/media_player.png');
 require('../image/defoultBackgroundMainPage.png');

@@ -4,6 +4,7 @@ import '../styles/footer.css';
 import '../styles/filter.css';
 import '../styles/cartfilms.css';
 import '../styles/header.css';
+import '../styles/search.css'
 import '../styles/range.css';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -23,6 +24,8 @@ require('../image/bg.jpg');
 require('../image/Logo.png');
 require('../image/favicon.png');
 require('../image/newlogo.png');
+require('../image/search.png');
+require('../image/loaderPoster.gif')
 
 window.addEventListener('DOMContentLoaded', () => {
     new dualRangeSlider(document.querySelector('.dual-range') as HTMLInputElement);
