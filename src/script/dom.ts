@@ -42,5 +42,7 @@ export const DOM = {
     minBudget: document.querySelector('.left') as HTMLInputElement,
     maxBudget: document.querySelector('.right') as HTMLInputElement,
     minDate: document.querySelector('#startData') as HTMLInputElement,
-    maxDate: document.querySelector('#endData') as HTMLInputElement
+    maxDate: document.querySelector('#endData') as HTMLInputElement,
+    searchInput: document.querySelector('.searchInput') as HTMLInputElement,
+    btnSearch: document.querySelector('.searchButton') as HTMLButtonElement
 }

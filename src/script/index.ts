@@ -14,9 +14,9 @@ import { domElement } from './constans';
 import { loader } from './loader';
 import { signIn, modal, toSignIn, toSignUp, signOut } from './autorization';
 import { addMovie } from './showMovie';
-import { resetFilter, openCloseFilters, changeColorGenres, filterByLanguage, filterByiD, getFilms, showFilters, showFilms, closeFilter } from './filters';
+import { resetFilter, openCloseFilters, changeColorGenres, showFilters, closeFilter, getFiltredFilms, getFilms } from './filters';
 import { dualRangeSlider } from './range';
-
+import { searchByTitle } from './searchByTitle';
 
 require('../image/arrow_left.png');
 require('../image/arrow_right.png');
@@ -39,10 +39,11 @@ DOM.signOut.addEventListener('click', signOut);
 domElement.btnResetSettings.addEventListener('click', resetFilter);
 DOM.filterBtn.addEventListener('click', openCloseFilters);
 DOM.genres.addEventListener('click', changeColorGenres);
-domElement.selectLanguage.addEventListener('change', filterByLanguage);
-domElement.filmId.addEventListener('change', filterByiD);
+// domElement.selectLanguage.addEventListener('change', filterByLanguage);
+// domElement.filmId.addEventListener('change', filterByiD);
 domElement.nav.addEventListener('click', getFilms);
 domElement.btnFilterFilms.addEventListener('click', showFilters);
-// domElement.btnFilterFilms.addEventListener('click', resetFilter);
-domElement.btnFilter.addEventListener('click', showFilms);
+domElement.btnFilterFilms.addEventListener('click', resetFilter);
+domElement.btnFilter.addEventListener('click', getFiltredFilms);
 DOM.filter.addEventListener('click', closeFilter);
+DOM.btnSearch.addEventListener('click', searchByTitle)

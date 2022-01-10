@@ -68,7 +68,7 @@ function sliceDate(release_date: string | string[]): string | string[] {
     return release_date.slice(0, 10);
 }
 
-function renderMovieData(movie: { backdrop_path: string; original_title: string; original_language: string; release_date: string; movie_rate: string; adult: boolean; revenue: string; popularity: string; overview: string; title: string; genres: string; trailer: string }): void {
+function renderMovieData(movie: { backdrop_path: string; original_title: string; original_language: string; release_date: string; movie_rate: string; adult: boolean; budget: string; popularity: string; overview: string; title: string; genres: string; trailer: string }): void {
     DOM.poster.src = `${constants.URLIMG}${movie.backdrop_path}`
     DOM.trailer.setAttribute('src', `https://www.youtube.com/embed/${movie.trailer}`);
     setData(movie.title, DOM.mainPageTitle);
@@ -77,7 +77,7 @@ function renderMovieData(movie: { backdrop_path: string; original_title: string;
     setData(sliceDate(movie.release_date), DOM.date);
     // setData(movie.movie_rate, DOM.rate);
     setData(isAdult(movie.adult), DOM.filmAdult);
-    setData(movie.revenue, DOM.filmRevenue);
+    setData(movie.budget, DOM.filmRevenue);
     setData(movie.popularity, DOM.filmPopularity);
     setData(movie.overview, DOM.description);
     setData(movie.title, DOM.title);

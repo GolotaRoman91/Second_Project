@@ -11,7 +11,6 @@ export async function addMovie() {
         .catch(error => console.log(error))
 }
 export function creatFirstPage(movies: movie[], skip: number): void {
-    console.log(movies)
     domElement.movieContainer.innerHTML = "";
     variable.currentPage = Math.ceil(movies.length / 5);
 
@@ -39,7 +38,7 @@ function createPost(film: movie, imageSrc: string) {
          <div class="cartFilm slider__item" id="${film.id}">
             <img src=${imageSrc} class="poster">
             <div class="descriptionWrapper">
-                <span class="cartFilmTitle">${film.title}:</span>
+                <span class="cartFilmTitle">${film.title}</span>
                 ${film.tagline}
             </div>
          </div>
@@ -47,25 +46,33 @@ function createPost(film: movie, imageSrc: string) {
 }
 domElement.BtnLeft.addEventListener('click', () => scrollLeft(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
 function scrollLeft(movies: movie[]): void {
-    if (movies.length >= 5 && variable.skip !== 0) {
+    if (variable.skip === 0) {
+        console.log(variable.skip)
+        return
+    }
+    else if (movies.length >= 5 && variable.skip !== 0) {
         variable.skip = variable.skip - 5
-    } else if (variable.skip === 0) {
-        return;
-    }
-    else {
-        variable.skip = movies.length
-    }
-    creatFirstPage(movies, variable.skip)
-}
-domElement.BtnRight.addEventListener('click', () => scrollRight(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
-function scrollRight(movies: movie[]): void {
-    if (movies.length >= 5 && variable.skip !== movies.length) {
-        variable.skip = variable.skip + 5
-    } else {
-        variable.skip = movies.length
+        // console.log(variable.skip)
     }
 
     if (variable.skip !== movies.length) {
+        // console.log(variable.skip)
+        creatFirstPage(movies, variable.skip)
+    }
+}
+domElement.BtnRight.addEventListener('click', () => scrollRight(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
+function scrollRight(movies: movie[]): void {
+
+    if (variable.skip >= movies.length - 5) {
+        console.log(variable.skip)
+        return
+    }
+    else if (movies.length >= 5 && variable.skip !== movies.length) {
+        variable.skip = variable.skip + 5
+        console.log(variable.skip)
+    }
+    if (variable.skip !== movies.length) {
+        console.log(variable.skip)
         creatFirstPage(movies, variable.skip)
     }
 }
@@ -75,7 +82,6 @@ domElement.movieContainer.onclick = function (event: MouseEvent) {
         return
     } else {
         const currentFilmId = (<HTMLElement>target).parentElement.id
-        console.log(currentFilmId)
         window.open(`./moviePage.html#${currentFilmId}`)
     }
 }
