@@ -10,8 +10,6 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* flex-wrap: wrap; */
-  /* gap: 50px; */
   border-radius: 0px;
 }
 .posterArea{
@@ -24,14 +22,12 @@ html {
   flex-direction: column;
   width: 50%;
 }
-
 .film_name {
   font-size: 40px;
   margin: 0;
   margin-bottom: 50px;
 
 }
-
 .table_film_data {
   float: right;
   border-collapse: collapse;
@@ -41,13 +37,11 @@ html {
   margin-left: 30px;
 
 }
-
 .poster {
   float: left;
   border-radius: 20px;
   width: 100%;
 }
-
 tr {
   line-height: 20px;
   border-collapse: collapse;
@@ -60,7 +54,6 @@ tr {
   vertical-align: baseline;
   background: transparent;
 }
-
 .description_h2 {
   margin-top: 5%;
   margin-bottom: 5%;
@@ -74,8 +67,6 @@ tr {
   background-color: rgba(255, 255, 255, 0.733);
   padding: 50px;
 }
-
-
 .film_data {
   font-size: 20px;
 }
@@ -96,12 +87,9 @@ tr {
   width: 320px;
   margin-left: 50px;
 }
-
 .player {
  width: 100%;
 }
-
-
 .backImg{
   position: fixed;
   top: 0;

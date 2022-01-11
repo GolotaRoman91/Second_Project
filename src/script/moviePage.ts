@@ -18,12 +18,17 @@ const getGenres = async (genres_ids: number[]): Promise<string> => {
         const response = await axios.get('http://127.0.0.1:3001/genres');
         console.log(genres_ids)
         const genres = response.data
+        setJustWatch(genres_ids)
         return setGenresForMovie(genres, genres_ids)
-
     } catch (error) {
         console.error(error);
     }
 
+}
+
+async function setJustWatch(genreId) {
+    const justWatch = axios.get(`http://127.0.0.1:3001/movies?id=${constants.idMovie}&genre_id=${genreId}`)
+    console.log(justWatch)
 }
 
 function setGenresForMovie(genres: genresType[], genres_ids: any[]): string {
@@ -72,7 +77,6 @@ function renderMovieData(movie: { backdrop_path: string; original_title: string;
     setData(movie.original_title, DOM.originalTitle);
     setData(movie.original_language, DOM.language);
     setData(sliceDate(movie.release_date), DOM.date);
-    // setData(movie.movie_rate, DOM.rate);
     setData(isAdult(movie.adult), DOM.filmAdult);
     setData(movie.budget, DOM.filmRevenue);
     setData(movie.popularity, DOM.filmPopularity);
