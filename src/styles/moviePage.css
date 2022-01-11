@@ -2,19 +2,27 @@ html {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: black;
 }
-body{
+*{
   margin: 0;
   padding: 0;
 }
 .wrapper {
   display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
+  flex-direction: row;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  /* gap: 50px; */
   border-radius: 0px;
 }
-
-.poster {
-  width: 100%;
+.posterArea{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.filmDataArea{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .film_name {
@@ -30,13 +38,14 @@ body{
   border-spacing: 0;
   font-size: 100%;
   text-indent: initial;
+  margin-left: 30px;
 
 }
 
 .poster {
   float: left;
   border-radius: 20px;
-  width: 500px;
+  width: 100%;
 }
 
 tr {
@@ -53,7 +62,8 @@ tr {
 }
 
 .description_h2 {
-  margin-right: 15px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .movie_page {
@@ -76,7 +86,9 @@ tr {
   padding-top: 5px;
   padding-bottom: 30px;
 }
-
+.descriptionTitle{
+  margin-top: 20px;
+}
 .advertising {
   margin-top: 30px;
   float: right;
@@ -97,4 +109,15 @@ tr {
   width: 100%;
   height: 100%;
   z-index: -1;
+}
+.playerBlock{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 65%;
+}
+.playerWrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
