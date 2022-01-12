@@ -41,7 +41,7 @@ DOM.genres.addEventListener('click', changeColorGenres);
 // domElement.filmId.addEventListener('change', filterByiD);
 domElement.nav.addEventListener('click', getFilms);
 domElement.btnFilterFilms.addEventListener('click', showFilters);
-domElement.btnFilterFilms.addEventListener('click', resetFilter);
+// domElement.btnFilterFilms.addEventListener('click', resetFilter);
 domElement.btnFilter.addEventListener('click', getFiltredFilms);
 DOM.filter.addEventListener('click', closeFilter);
 DOM.btnSearch.addEventListener('click', searchByTitle)

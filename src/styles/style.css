@@ -240,6 +240,7 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
 }
 .wrapCard{
   width: 200px;
@@ -279,7 +280,18 @@ main {
   color: #fc8039;
   font-weight: 700;
 }
-
+.notFoundAlert{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 65vh;
+  position: absolute;
+}
+.notFoundAlertTitle{
+  font-size: 30px;
+  font-weight: 700;
+  color: aliceblue;
+}
 
 
 /* .descriptionWrapperShow {

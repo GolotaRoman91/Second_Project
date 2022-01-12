@@ -46,5 +46,8 @@ export const DOM = {
     searchInput: document.querySelector('.searchInput') as HTMLInputElement,
     btnSearch: document.querySelector('.searchButton') as HTMLButtonElement,
     justWatch: document.querySelector('.justWatch') as HTMLElement,
-    cartJustWatchFilm: document.querySelector('.cartJustWatchFilm') as HTMLElement
+    cartJustWatchFilm: document.querySelector('.cartJustWatchFilm') as HTMLElement,
+    dualRange: document.querySelector('.dual-range') as HTMLElement,
+    buttPos: document.querySelector('.buttPos') as HTMLElement,
+    notFoundAlert: document.querySelector('.notFoundAlert') as HTMLElement
 }
