@@ -10,6 +10,7 @@ const axios = require('axios')
 //const selectLanguage = domElement.selectLanguage
 
 export async function getFiltredFilms() {
+    // document.querySelector('.hiddenArrow').className = '';
     let query = `http://127.0.0.1:3001/movies?`
     if (domElement.selectLanguage.value !== "") {
         query += `languages=${domElement.selectLanguage.value}&`
@@ -170,6 +171,10 @@ export function closeFilter(evt) {
     }
 }
 
+export function hideArrow (arrow) {
+    arrow.classList.add('hiddenArrow');
+}
+
 export const resetFilter = (): void => {
     filterData.genre_ids = null;
     filterData.id = null;
@@ -181,6 +186,7 @@ export const resetFilter = (): void => {
     constants.filteredFilms = [];
     (<HTMLInputElement>document.querySelector('.handle.left')).dataset.value = '0';
     (<HTMLInputElement>document.querySelector('.handle.right')).dataset.value = '300000000';
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     (<HTMLInputElement>document.querySelector('.dual-range')).style = '--x-1:-9.34375px; --x-2:500px';
     creatFirstPage(constants.movies, 0);

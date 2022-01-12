@@ -46,7 +46,7 @@ function fillJustWatch(justWatchData) {
 function setGenresForMovie(genres: genresType[], genres_ids: any[]): string {
     genres_ids = [...new Set(genres_ids)]
     let stringGenres = ''
-    let filteredGeners = genres.filter(el => genres_ids.includes(el.id));
+    const filteredGeners = genres.filter(el => genres_ids.includes(el.id));
     filteredGeners.forEach(elem => {
         stringGenres += elem.name + ', '
     })

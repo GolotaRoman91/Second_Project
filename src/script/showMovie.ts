@@ -2,6 +2,7 @@ import { constants } from "./constans";
 import { domElement } from "./constans";
 import { variable } from "./constans";
 import { movie } from "./types";
+import { hideArrow } from "./filters";
 export async function addMovie() {
     await fetch(constants.requestURLMovie)
         .then(response => response.json())
@@ -10,11 +11,14 @@ export async function addMovie() {
         .then(() => variable.numbersPage = Math.ceil(constants.movies.length / constants.movieOnPage))
         .catch(error => console.log(error))
 }
+
 export function creatFirstPage(movies: movie[], skip: number): void {
     domElement.movieContainer.innerHTML = "";
     variable.currentPage = Math.ceil(movies.length / 5);
-
+    
     if ((<movie[]>movies).length && !skip) {
+        hideArrow(domElement.BtnLeft);
+        (<HTMLInputElement>domElement.BtnRight).classList.remove('hiddenArrow');
         movies.forEach((item, index) => {
             if (index < 5) {
                 const imageSrc = `${constants.URLIMG}${item.backdrop_path}`
@@ -23,6 +27,7 @@ export function creatFirstPage(movies: movie[], skip: number): void {
             }
         })
     } else if (skip) {
+        (<HTMLInputElement>domElement.BtnLeft).classList.remove('hiddenArrow');     
         const skipArr = movies.slice(skip, skip + 5)
         skipArr.forEach(elem => {
             const imageSrc = `${constants.URLIMG}${elem.backdrop_path}`
@@ -42,9 +47,10 @@ function createPost(film: movie, imageSrc: string) {
          </div>
     `
 }
-domElement.BtnLeft.addEventListener('click', () => scrollLeft(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
-function scrollLeft(movies: movie[]): void {
+
+export function scrollLeft(movies: movie[]): void {
     if (variable.skip === 0) {
+        hideArrow(document.querySelector('.btnRight'));
         console.log(variable.skip)
         return
     }
@@ -54,9 +60,12 @@ function scrollLeft(movies: movie[]): void {
     if (variable.skip !== movies.length) {
         creatFirstPage(movies, variable.skip)
     }
+    if (variable.skip + 5 < movies.length) {
+        (<HTMLInputElement>domElement.BtnRight).classList.remove('hiddenArrow');
+    }
 }
-domElement.BtnRight.addEventListener('click', () => scrollRight(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
-function scrollRight(movies: movie[]): void {
+
+export function scrollRight(movies: movie[]): void {
 
     if (variable.skip >= movies.length - 5) {
         console.log(variable.skip)
@@ -69,6 +78,9 @@ function scrollRight(movies: movie[]): void {
     if (variable.skip !== movies.length) {
         console.log(variable.skip)
         creatFirstPage(movies, variable.skip)
+    }
+    if (variable.skip + 5 >= movies.length) {
+        hideArrow(domElement.BtnRight)
     }
 }
 

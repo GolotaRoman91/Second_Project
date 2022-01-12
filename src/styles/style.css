@@ -254,7 +254,7 @@ main {
   transform: scale(0.9);
 }
 .imgBtnRight{
-  margin-right: 20px;
+    margin-right: 20px;
   cursor: pointer;
   width: 60px;
 }
@@ -291,6 +291,11 @@ main {
   font-size: 30px;
   font-weight: 700;
   color: aliceblue;
+}
+
+.hiddenArrow {
+  pointer-events: none;
+  visibility: hidden;
 }
 
 
