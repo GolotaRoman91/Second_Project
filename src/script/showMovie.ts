@@ -76,11 +76,11 @@ export function getCurrentFilmId(event: MouseEvent) {
     const target = event.target;
     if ((<HTMLElement>target).className === "poster" || (<HTMLElement>target).className === "descriptionWrapper") {
         const currentFilmId = (<HTMLElement>target).parentElement.id
-        openManePage(currentFilmId)
+        openMainPage(currentFilmId)
     } else {
         return
     }
 }
-export function openManePage(currentFilmId) {
+export function openMainPage(currentFilmId) {
     window.open(`./moviePage.html#${currentFilmId}`)
 }

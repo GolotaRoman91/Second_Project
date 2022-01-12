@@ -108,4 +108,41 @@ tr {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
+}
+.justWatch{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.cartJustWatchFilm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+  width: 100%;
+}
+.posterJustWatch{
+  width: 64%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.posterJustWatch:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 5px 8px #00000027;
+}
+.justWatchWrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%; 
+}
+.justWatchTitle{
+  margin-bottom: 10px;
+  font-size:25px;
+  color: #000000;
+  font-weight: 700;
 }

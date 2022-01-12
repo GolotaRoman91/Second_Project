@@ -45,4 +45,5 @@ domElement.btnFilterFilms.addEventListener('click', resetFilter);
 domElement.btnFilter.addEventListener('click', getFiltredFilms);
 DOM.filter.addEventListener('click', closeFilter);
 DOM.btnSearch.addEventListener('click', searchByTitle)
-domElement.movieContainer.addEventListener('click', getCurrentFilmId)
+domElement.movieContainer.addEventListener('click', getCurrentFilmId);
+// DOM.cartJustWatchFilm.addEventListener('click', getCurrentJustWatchFilmId)

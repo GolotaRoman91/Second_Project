@@ -44,5 +44,7 @@ export const DOM = {
     minDate: document.querySelector('#startData') as HTMLInputElement,
     maxDate: document.querySelector('#endData') as HTMLInputElement,
     searchInput: document.querySelector('.searchInput') as HTMLInputElement,
-    btnSearch: document.querySelector('.searchButton') as HTMLButtonElement
+    btnSearch: document.querySelector('.searchButton') as HTMLButtonElement,
+    justWatch: document.querySelector('.justWatch') as HTMLElement,
+    cartJustWatchFilm: document.querySelector('.cartJustWatchFilm') as HTMLElement
 }

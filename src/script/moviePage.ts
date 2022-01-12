@@ -25,12 +25,24 @@ const getGenres = async (genres_ids: number[]): Promise<string> => {
     }
 
 }
-
 async function setJustWatch(genreId) {
-    const justWatch = axios.get(`http://127.0.0.1:3001/movies?id=${constants.idMovie}&genre_id=${genreId}`)
-    console.log(justWatch)
+    const justWatch = await axios.get(`http://127.0.0.1:3001/movies?id=${constants.idMovie}&genre_id=${genreId[0]}&perPage=3`);
+    console.log(justWatch.data)
+    fillJustWatch(justWatch.data)
 }
-
+function fillJustWatch(justWatchData) {
+    justWatchData.forEach(element => {
+        DOM.justWatch.innerHTML += `
+        <div class="cartJustWatchFilm" id="${element.id}">
+           <img src=${constants.URLIMG}${element.backdrop_path} class="posterJustWatch">
+        </div>
+   `
+    });
+}
+// <div class="descriptionJustWatchWrapper">
+//                <span class="cartJustWatchTitle">${element.title}</span>
+//                ${element.tagline}
+//            </div>
 function setGenresForMovie(genres: genresType[], genres_ids: any[]): string {
     genres_ids = [...new Set(genres_ids)]
     let stringGenres = ''
@@ -84,7 +96,16 @@ function renderMovieData(movie: { backdrop_path: string; original_title: string;
     setData(movie.title, DOM.title);
     setData(movie.genres, DOM.filmGenres);
 }
-
-
-
-
+function getCurrentJustWatchFilmId(event) {
+    const target = event.target;
+    if ((<HTMLElement>target).className === "posterJustWatch") {
+        const currentFilmId = (<HTMLElement>target).parentElement.id
+        openJustMainPage(currentFilmId)
+    } else {
+        return
+    }
+}
+export function openJustMainPage(currentFilmId) {
+    window.open(`./moviePage.html#${currentFilmId}`)
+}
+DOM.justWatch.addEventListener('click', getCurrentJustWatchFilmId)
