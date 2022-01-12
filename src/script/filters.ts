@@ -10,6 +10,7 @@ const axios = require('axios')
 //const selectLanguage = domElement.selectLanguage
 
 export async function getFiltredFilms() {
+    // document.querySelector('.hiddenArrow').className = '';
     let query = `http://127.0.0.1:3001/movies?`
     if (domElement.selectLanguage.value !== "") {
         query += `languages=${domElement.selectLanguage.value}&`
@@ -168,6 +169,10 @@ export function closeFilter(evt) {
     if (evt.target.className === 'filter') {
         openCloseFilters()
     }
+}
+
+export function hideArrow (arrow) {
+    arrow.classList.add('hiddenArrow');
 }
 
 export const resetFilter = (): void => {

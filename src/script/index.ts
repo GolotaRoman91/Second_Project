@@ -10,10 +10,10 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 window.addEventListener('load', loader);
 import { DOM } from './dom';
-import { domElement } from './constans';
+import { domElement, constants } from './constans';
 import { loader } from './loader';
 import { signIn, modal, toSignIn, toSignUp, signOut } from './autorization';
-import { addMovie, getCurrentFilmId } from './showMovie';
+import { addMovie, getCurrentFilmId, scrollLeft, scrollRight } from './showMovie';
 import { resetFilter, openCloseFilters, changeColorGenres, showFilters, closeFilter, getFiltredFilms, getFilms } from './filters';
 import { dualRangeSlider } from './range';
 import { searchByTitle } from './searchByTitle';
@@ -47,3 +47,5 @@ DOM.filter.addEventListener('click', closeFilter);
 DOM.btnSearch.addEventListener('click', searchByTitle)
 domElement.movieContainer.addEventListener('click', getCurrentFilmId);
 // DOM.cartJustWatchFilm.addEventListener('click', getCurrentJustWatchFilmId)
+domElement.BtnLeft.addEventListener('click', () => scrollLeft(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
+domElement.BtnRight.addEventListener('click', () => scrollRight(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
