@@ -181,6 +181,7 @@ export const resetFilter = (): void => {
     constants.filteredFilms = [];
     (<HTMLInputElement>document.querySelector('.handle.left')).dataset.value = '0';
     (<HTMLInputElement>document.querySelector('.handle.right')).dataset.value = '300000000';
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     (<HTMLInputElement>document.querySelector('.dual-range')).style = '--x-1:-9.34375px; --x-2:500px';
     creatFirstPage(constants.movies, 0);
