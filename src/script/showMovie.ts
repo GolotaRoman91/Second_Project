@@ -31,8 +31,6 @@ export function creatFirstPage(movies: movie[], skip: number): void {
         });
     }
 }
-
-
 function createPost(film: movie, imageSrc: string) {
     return `
          <div class="cartFilm slider__item" id="${film.id}">
@@ -52,11 +50,8 @@ function scrollLeft(movies: movie[]): void {
     }
     else if (movies.length >= 5 && variable.skip !== 0) {
         variable.skip = variable.skip - 5
-        // console.log(variable.skip)
     }
-
     if (variable.skip !== movies.length) {
-        // console.log(variable.skip)
         creatFirstPage(movies, variable.skip)
     }
 }
@@ -76,12 +71,16 @@ function scrollRight(movies: movie[]): void {
         creatFirstPage(movies, variable.skip)
     }
 }
-domElement.movieContainer.onclick = function (event: MouseEvent) {
+
+export function getCurrentFilmId(event: MouseEvent) {
     const target = event.target;
-    if ((<HTMLElement>target).className === "cartFilms") {
-        return
-    } else {
+    if ((<HTMLElement>target).className === "poster" || (<HTMLElement>target).className === "descriptionWrapper") {
         const currentFilmId = (<HTMLElement>target).parentElement.id
-        window.open(`./moviePage.html#${currentFilmId}`)
+        openMainPage(currentFilmId)
+    } else {
+        return
     }
+}
+export function openMainPage(currentFilmId) {
+    window.open(`./moviePage.html#${currentFilmId}`)
 }

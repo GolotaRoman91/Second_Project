@@ -37,7 +37,6 @@ async function checkResponse(data: any, bodySignUp: bodySignUp): Promise<void> {
             break;
         }
         case (data === `User with login ${bodySignUp.login} already exist`): {
-            console.log(data.message)
             DOM.outputUp.innerHTML = data.message;
             break;
         }

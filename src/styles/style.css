@@ -67,7 +67,7 @@ main {
 .cartFilms {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-around; */
   width: 100%;
 }
 .cartFilm:hover{
@@ -163,6 +163,10 @@ main {
   font-weight: 500;
 }
 .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
   width: 370px;
   padding: 0 40px;
@@ -171,13 +175,15 @@ main {
   background: #191919;
   text-align: center;
 }
-
+.box input{
+  margin: 7px 0;
+}
 .box input[type='text'],
 .box input[type='password'] {
   border: 0;
   background: none;
   display: block;
-  margin: 20px auto;
+  margin: 20 auto;
   text-align: center;
   border: 2px solid #3498db;
   padding: 14px 10px;
@@ -225,7 +231,10 @@ main {
   cursor: pointer;
 }
 .wrapperPosButt{
-  margin-top: 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 65vh;
 }
 .buttPos{
   display: flex;
@@ -270,6 +279,7 @@ main {
   color: #fc8039;
   font-weight: 700;
 }
+
 
 
 /* .descriptionWrapperShow {
