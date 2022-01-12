@@ -24,9 +24,18 @@ export async function getFiltredFilms() {
         query += `budget_max=${DOM.maxBudget.dataset.value}&`
     }
     const result = await axios.get(query)
-    console.log(query)
+    console.log(result)
     constants.filteredFilms = result.data
-    creatFirstPage(constants.filteredFilms, 0)
+    console.log(constants.filteredFilms)
+    if (result.data === 'Not found') {
+        DOM.buttPos.classList.add('hidden')
+        DOM.notFoundAlert.classList.remove('hidden')
+    } else {
+        DOM.notFoundAlert.classList.add('hidden')
+        DOM.buttPos.classList.remove('hidden')
+        variable.skip = 0;
+        creatFirstPage(constants.filteredFilms, 0)
+    }
     DOM.filter.classList.toggle('hidden');
 }
 
@@ -34,7 +43,7 @@ export const showFilters = (): void => {
     domElement.containerFilter.style.display = 'block';
 };
 
-export const getFilms = (event: Event): boolean => {
+export const getFilms = (event: Event): void => {
     if ((<HTMLElement>event.target).tagName !== 'LI') {
         return;
     } else {
@@ -147,7 +156,12 @@ export function openCloseFilters() {
 }
 
 export function changeColorGenres(evt: any) {
-    evt.target.classList.toggle('filmGenresActiv');
+    clearFiltersGenres()
+    if ((<HTMLElement>evt.target).className !== 'filmsGenres') {
+        return;
+    } else {
+        evt.target.classList.toggle('filmGenresActiv');
+    }
 }
 
 export function closeFilter(evt) {
@@ -163,9 +177,12 @@ export const resetFilter = (): void => {
     filterData.original_language = null;
     filterData.budget = null;
     filterData.adult = null;
-
     variable.skip = 0;
     constants.filteredFilms = [];
+    (<HTMLInputElement>document.querySelector('.handle.left')).dataset.value = '0';
+    (<HTMLInputElement>document.querySelector('.handle.right')).dataset.value = '300000000';
+    //@ts-ignore
+    (<HTMLInputElement>document.querySelector('.dual-range')).style = '--x-1:-9.34375px; --x-2:500px';
     creatFirstPage(constants.movies, 0);
     // domElement.containerFilter.style.display = 'none';
     // DOM.filter.classList.toggle('hidden');

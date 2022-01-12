@@ -9,5 +9,18 @@ export async function searchByTitle() {
     variable.skip = 0;
     const result = await axios.get(`http://127.0.0.1:3001/movies?title=${DOM.searchInput.value}`)
     constants.filteredFilms = result.data
-    creatFirstPage(constants.filteredFilms, 0)
+    searchByTitleRender(result)
+}
+function searchByTitleRender(result) {
+    if (result.data === 'Not found') {
+        DOM.searchInput.value = "";
+        DOM.buttPos.classList.add('hidden')
+        DOM.notFoundAlert.classList.remove('hidden')
+    } else {
+        DOM.searchInput.value = "";
+        DOM.notFoundAlert.classList.add('hidden')
+        DOM.buttPos.classList.remove('hidden')
+        variable.skip = 0;
+        creatFirstPage(constants.filteredFilms, 0)
+    }
 }

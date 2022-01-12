@@ -1,19 +1,17 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 export class dualRangeSlider {
-    constructor(rangeElement) {
-        // @ts-ignore
+    range: HTMLElement;
+    min: number;
+    max: number;
+    handles: Element[];
+    startPos: number;
+    activeHandle: any;
+    constructor(rangeElement: HTMLElement) {
         this.range = rangeElement;
-        // @ts-ignore
-        this.min = 0;
-        // @ts-ignore
+        this.min = 10000;
         this.max = 300000000;
-        // @ts-ignore
         this.handles = [...this.range.querySelectorAll('.handle')];
-        // @ts-ignore
         this.startPos = 0;
-        // @ts-ignore
         this.activeHandle;
-        // @ts-ignore
         this.handles.forEach(handle => {
             handle.addEventListener('mousedown', this.startMove.bind(this));
             handle.addEventListener('touchstart', this.startMoveTouch.bind(this));
@@ -23,21 +21,15 @@ export class dualRangeSlider {
         window.addEventListener('touchend', this.stopMove.bind(this));
         window.addEventListener('touchcancel', this.stopMove.bind(this));
         window.addEventListener('touchleave', this.stopMove.bind(this));
-        // @ts-ignore
-        const rangeRect: any = this.range.getBoundingClientRect();
-        // @ts-ignore
-        const handleRect: any = this.handles[0].getBoundingClientRect();
-        // @ts-ignore
+        // const rangeRect: any = this.range.getBoundingClientRect();
+        // const handleRect: any = this.handles[0].getBoundingClientRect();
         this.range.style.setProperty('--x-1', '0px');
-        // @ts-ignore
         this.range.style.setProperty('--x-2', '500px');
-        // @ts-ignore
-        this.handles[0].dataset.value = this.range.dataset.min;
-        // @ts-ignore
-        this.handles[1].dataset.value = this.range.dataset.max;
+        (<HTMLElement>this.handles[0]).dataset.value = this.range.dataset.min;
+        (<HTMLElement>this.handles[1]).dataset.value = this.range.dataset.max;
     }
 
-    startMoveTouch(this: any, e) {
+    startMoveTouch(this: any, e: { target: { getBoundingClientRect: () => any; }; touches: { clientX: number; }[]; }) {
         const handleRect = e.target.getBoundingClientRect();
         this.startPos = e.touches[0].clientX - handleRect.x;
         this.activeHandle = e.target;
@@ -45,18 +37,18 @@ export class dualRangeSlider {
         window.addEventListener('touchmove', this.moveTouchListener);
     }
 
-    startMove(this: any, e) {
+    startMove(this: any, e: { offsetX: any; target: any; }) {
         this.startPos = e.offsetX;
         this.activeHandle = e.target;
         this.moveListener = this.move.bind(this);
         window.addEventListener('mousemove', this.moveListener);
     }
 
-    moveTouch(e) {
+    moveTouch(e: { touches: { clientX: any; }[]; }) {
         this.move({ clientX: e.touches[0].clientX });
     }
 
-    move(this: any, e) {
+    move(this, e) {
         const isLeft = this.activeHandle.classList.contains('left');
         const property = isLeft ? '--x-1' : '--x-2';
         const parentRect = this.range.getBoundingClientRect();
@@ -75,7 +67,7 @@ export class dualRangeSlider {
         this.range.style.setProperty(property, newX + 'px');
     }
 
-    calcHandleValue(this: any, percentage) {
+    calcHandleValue(this: any, percentage: number) {
         return Math.round(percentage * (this.max - this.min) + this.min);
     }
 
