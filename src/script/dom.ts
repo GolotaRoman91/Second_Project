@@ -49,5 +49,7 @@ export const DOM = {
     cartJustWatchFilm: document.querySelector('.cartJustWatchFilm') as HTMLElement,
     dualRange: document.querySelector('.dual-range') as HTMLElement,
     buttPos: document.querySelector('.buttPos') as HTMLElement,
-    notFoundAlert: document.querySelector('.notFoundAlert') as HTMLElement
+    notFoundAlert: document.querySelector('.notFoundAlert') as HTMLElement,
+    startData: document.getElementById('startData') as HTMLInputElement,
+    endData: document.getElementById('endData') as HTMLInputElement
 }

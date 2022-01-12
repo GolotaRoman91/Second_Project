@@ -24,6 +24,7 @@ require('../image/bg.jpg');
 require('../image/Logo.png');
 require('../image/favicon.png');
 require('../image/search.png');
+require('../image/movies.png');
 
 window.addEventListener('DOMContentLoaded', () => {
     new dualRangeSlider(document.querySelector('.dual-range') as HTMLInputElement);
