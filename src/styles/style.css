@@ -63,7 +63,10 @@ main {
 .btnFilterFilms:active{
   transform: scale(0.9);
 }
-
+.movieTitleLogo{
+  margin-top: 20px;
+  width: 200px;
+}
 .cartFilms {
   display: flex;
   flex-direction: row;

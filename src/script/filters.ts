@@ -20,6 +20,9 @@ export async function getFiltredFilms() {
     if (DOM.minBudget.dataset.value) {
         query += `budget_min=${DOM.minBudget.dataset.value}&`
     }
+    if (DOM.startData.value && DOM.endData.value) {
+        query += `minDate=${DOM.startData.value}&maxDate=${DOM.endData.value}&`
+    }
     if (DOM.maxBudget.dataset.value) {
         query += `budget_max=${DOM.maxBudget.dataset.value}&`
     }
