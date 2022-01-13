@@ -41,12 +41,13 @@ export const getFilms = (event: Event): void => {
 export function openCloseFilters() {
     DOM.filter.classList.toggle('hidden');
 }
-export function changeColorGenres(evt: any) {
+export function changeColorGenres(evt: MouseEvent) {
+    const target = evt.target as HTMLButtonElement;
     clearFiltersGenres()
     if ((<HTMLElement>evt.target).className !== 'filmsGenres') {
         return;
     } else {
-        evt.target.classList.toggle('filmGenresActiv');
+        target.classList.toggle('filmGenresActiv');
     }
 }
 export function closeFilter(evt) {
@@ -72,7 +73,7 @@ export const resetFilter = (): void => {
     //@ts-ignore
     (<HTMLInputElement>document.querySelector('.dual-range')).style = '--x-1:-9.34375px; --x-2:500px';
     clearFiltersGenres();
-    (<HTMLInputElement>document.querySelector('#selectLanguage')).value = '';
+    (<HTMLInputElement>document.querySelector('#selectLanguage')).value = 'All';
 };
 function clearFiltersGenres() {
     const genresList = Array.from(document.querySelectorAll('.filmsGenres'));
