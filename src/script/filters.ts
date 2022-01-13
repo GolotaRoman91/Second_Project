@@ -22,11 +22,10 @@ export async function getFiltredFilms() {
     }
     requestURLMovie.url = query
     variable.currentPage = 1
-    addMovie()
     DOM.notFoundAlert.classList.add('hidden')
     DOM.buttPos.classList.remove('hidden')
-    variable.skip = 0;
     DOM.filter.classList.toggle('hidden');
+    addMovie()
 }
 export const showFilters = (): void => {
     DOM.containerFilter.style.display = 'block';

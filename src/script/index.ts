@@ -16,6 +16,7 @@ import { addMovie, getCurrentFilmId, scrollLeft, scrollRight } from './showMovie
 import { resetFilter, openCloseFilters, changeColorGenres, showFilters, closeFilter, getFiltredFilms, getFilms } from './filters';
 import { dualRangeSlider } from './range';
 import { searchByTitle } from './searchByTitle';
+import { fillFiltersGenre } from './fiilFilters';
 
 require('../image/arrow_left.png');
 require('../image/arrow_right.png');
@@ -29,6 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
     new dualRangeSlider(document.querySelector('.dual-range') as HTMLInputElement);
 });
 addMovie();
+fillFiltersGenre()
 DOM.signInButt.addEventListener('click', signIn);
 DOM.signUpButt.addEventListener('click', modal);
 DOM.toSignIn.addEventListener('click', toSignIn);
