@@ -63,7 +63,7 @@
                     <p class="dataTitle">Data</p>
                     <div class="releaseData">
                         <label for="startData">Date of release: </label>
-                        <input type="date" id="startData" value="1970-01-01" min="1900-01-01" max="2022-12-31" required>
+                        <input type="date" id="startData" value="1937-01-01" min="1900-01-01" max="2022-12-31" required>
                         <label for="endData"><span class="onRelease">On:</span></label>
                         <input type="date" id="endData" value="2022-01-14" min="1900-01-01" max="2022-12-31" required>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="wraperRange">
                     <div class="blockRange">
                         <h5 class='movieBudget'>Movie budget</h5>
-                        <div class="dual-range" data-min="0" data-max="300000000">
+                        <div class="dual-range" data-min="0" data-max="400000000">
                             <span class="handle left"></span>
                             <span class="highlight"></span>
                             <span class="handle right"></span>
@@ -133,7 +133,10 @@
                     <button class="btnFilterFilms">FILTER</button>
                     <div class="wrapperPosButt">
                         <div class="notFoundAlert hidden">
-                            <p class="notFoundAlertTitle">Nothing films found :(</p>
+                            <audio controls class="player404">
+                                <source src="./sound/soundNotFound.mp3" type="audio/mp3">
+                            </audio>
+                            <img class="image404" src="./image/mfnzwt.gif" alt="">
                         </div>
                         <div class="buttPos">
                             <div href="#" class="btnRight hiddenArrow"><img class="imgBtnRight"

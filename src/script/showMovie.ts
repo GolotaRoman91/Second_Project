@@ -10,6 +10,8 @@ export async function addMovie(): Promise<void> {
         notFound()
         return
     } else {
+        DOM.player404.pause();
+        DOM.player404.currentTime = 0;
         render(movieArrayResult.data)
     }
 }
@@ -17,6 +19,7 @@ function notFound(): void {
     DOM.searchInput.value = "";
     DOM.buttPos.classList.add('hidden')
     DOM.notFoundAlert.classList.remove('hidden')
+    DOM.player404.play()
 }
 function render(movieArrayResult): void {
     if (movieArrayResult.totalCount.count <= 5 || Math.ceil(movieArrayResult.totalCount.count / 5) <= variable.currentPage) {
