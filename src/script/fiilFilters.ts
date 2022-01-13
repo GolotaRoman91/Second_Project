@@ -1,6 +1,6 @@
 import { DOM } from './dom';
-import { genresType, language } from './types'
-const axios = require('axios')
+import { genresType, language } from './types';
+const axios = require('axios');
 export async function fillFiltersGenre(): Promise<void> {
     const genreArray = await axios.get(`http://127.0.0.1:3001/genres?` + document.cookie)
     const languageArray = await axios.get(`http://127.0.0.1:3001/languages?` + document.cookie)
@@ -13,7 +13,6 @@ function createGenresBlock(genreArray: genresType[]): void {
     });
 }
 function createlanguageBlock(languageArray: language[]): void {
-    console.log(languageArray)
     languageArray.forEach(language => {
         DOM.selectLanguage.innerHTML += `<option class="language">${language.original_language}</option>`
     });

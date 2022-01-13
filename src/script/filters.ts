@@ -18,12 +18,12 @@ export async function getFiltredFilms() {
     if (DOM.maxBudget.dataset.value) {
         query += `budget_max=${DOM.maxBudget.dataset.value}&`
     }
-    requestURLMovie.url = query
+    requestURLMovie.url = query;
     variable.currentPage = 1;
     (<HTMLInputElement>DOM.BtnLeft).classList.add('hiddenArrow');
     addMovie()
-    DOM.notFoundAlert.classList.add('hidden')
-    DOM.buttPos.classList.remove('hidden')
+    DOM.notFoundAlert.classList.add('hidden');
+    DOM.buttPos.classList.remove('hidden');
     DOM.filter.classList.toggle('hidden');
 }
 export const showFilters = (): void => {

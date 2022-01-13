@@ -67,4 +67,4 @@ export const DOM = {
     containerFilter: document.querySelector('.containerFilter') as HTMLElement,
     btnFilterFilms: document.querySelector('.btnFilterFilms') as HTMLElement,
     btnResetSettings: document.querySelector('.btnResetSettings') as HTMLElement,
-}
+};

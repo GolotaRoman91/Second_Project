@@ -21,7 +21,6 @@ export const variable = {
     skip: 0,
     limit: 5
 };
-
 export const filterData = {
     genre_ids: null,
     id: null,
@@ -29,7 +28,7 @@ export const filterData = {
     original_language: null,
     budget: null,
     adult: null,
-}
+};
 export const requestURLMovie = {
     url: `http://127.0.0.1:3001/movies?`
-}
+};

@@ -12,11 +12,10 @@ window.addEventListener('load', loader);
 import { DOM } from './dom';
 import { loader } from './loader';
 import { checkAuthorize, toSignIn, toSignUp, signOut, checkToken, modal } from './autorization';
-import { addMovie, getCurrentFilmId, scrollLeft, scrollRight } from './showMovie';
+import { getCurrentFilmId, scrollLeft, scrollRight } from './showMovie';
 import { resetFilter, openCloseFilters, changeColorGenres, showFilters, closeFilter, getFiltredFilms, getFilms } from './filters';
 import { dualRangeSlider } from './range';
 import { searchByTitle } from './searchByTitle';
-import { fillFiltersGenre } from './fiilFilters';
 
 require('../image/arrow_left.png');
 require('../image/arrow_right.png');

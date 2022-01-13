@@ -1,11 +1,10 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import { bodySignUp } from './types';
-import { bodySignIn } from './types';
-import { addMovie } from './showMovie'
-import { fillFiltersGenre } from './fiilFilters'
-import { DOM } from './dom'
-const axios = require('axios')
+import { addMovie } from './showMovie';
+import { fillFiltersGenre } from './fiilFilters';
+import { DOM } from './dom';
+const axios = require('axios');
 
 export async function checkAuthorize(): Promise<void> {
     try {
@@ -50,7 +49,6 @@ export async function modal(): Promise<void> {
             last_name: DOM.surname.value
         };
         const data = await sendRequest('POST', DOM.requestURl, bodySignUp)
-        console.log(data)
         checkResponse(data, bodySignUp)
     }
 }
