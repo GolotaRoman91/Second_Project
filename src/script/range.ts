@@ -21,8 +21,6 @@ export class dualRangeSlider {
         window.addEventListener('touchend', this.stopMove.bind(this));
         window.addEventListener('touchcancel', this.stopMove.bind(this));
         window.addEventListener('touchleave', this.stopMove.bind(this));
-        // const rangeRect: any = this.range.getBoundingClientRect();
-        // const handleRect: any = this.handles[0].getBoundingClientRect();
         this.range.style.setProperty('--x-1', '0px');
         this.range.style.setProperty('--x-2', '500px');
         (<HTMLElement>this.handles[0]).dataset.value = this.range.dataset.min;

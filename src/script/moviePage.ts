@@ -28,7 +28,7 @@ const getGenres = async (genres_ids: number[]): Promise<string> => {
 async function setJustWatch(genreId) {
     const justWatch = await axios.get(`http://127.0.0.1:3001/movies?id=${constants.idMovie}&genre_id=${genreId[0]}&perPage=3`);
     console.log(justWatch.data)
-    fillJustWatch(justWatch.data)
+    fillJustWatch(justWatch.data.movies)
 }
 function fillJustWatch(justWatchData) {
     justWatchData.forEach(element => {
@@ -39,10 +39,6 @@ function fillJustWatch(justWatchData) {
    `
     });
 }
-// <div class="descriptionJustWatchWrapper">
-//                <span class="cartJustWatchTitle">${element.title}</span>
-//                ${element.tagline}
-//            </div>
 function setGenresForMovie(genres: genresType[], genres_ids: any[]): string {
     genres_ids = [...new Set(genres_ids)]
     let stringGenres = ''
