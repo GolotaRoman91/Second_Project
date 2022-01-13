@@ -10,27 +10,8 @@ export const constants = {
     filmByLang: [],
     idMovie: document.URL.split('#')[1]
 };
-
-export const domElement = {
-    BtnLeft: document.querySelector('.btnRight') as HTMLElement,
-    BtnRight: document.querySelector('.btnLeft') as HTMLElement,
-    movieContainer: document.querySelector('.cartFilms') as HTMLElement,
-    movieElement: document.createElement('img') as HTMLElement,
-    movieElements: document.querySelectorAll('.cartFilm') as HTMLCollectionBase,
-    films: document.querySelectorAll('.films') as HTMLCollectionBase,
-    nav: document.getElementById('nav-block') as HTMLElement,
-    adult: document.querySelector('.adult') as HTMLElement,
-    btnFilter: document.querySelector('.btnFilter') as HTMLElement,
-    minNumberBudget: document.querySelector('.minNumberBudget') as HTMLElement,
-    maxNumberBudget: document.querySelector('.maxNumberBudget') as HTMLElement,
-    filmId: document.getElementById('filmId') as HTMLElement,
-    selectLanguage: document.getElementById('selectLanguage') as HTMLInputElement,
-    containerFilter: document.querySelector('.containerFilter') as HTMLElement,
-    btnFilterFilms: document.querySelector('.btnFilterFilms') as HTMLElement,
-    btnResetSettings: document.querySelector('.btnResetSettings') as HTMLElement,
-};
-
 export const variable = {
+    totalCount: 0,
     htmlElems: [],
     currentPage: 1,
     numbersPage: 0,
@@ -48,4 +29,7 @@ export const filterData = {
     original_language: null,
     budget: null,
     adult: null,
+}
+export const requestURLMovie = {
+    url: `http://127.0.0.1:3001/movies?`
 }

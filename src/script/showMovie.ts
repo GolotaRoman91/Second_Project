@@ -1,40 +1,46 @@
-import { constants } from "./constans";
-import { domElement } from "./constans";
-import { variable } from "./constans";
+import { constants, requestURLMovie, variable } from "./constans";
 import { movie } from "./types";
-import { hideArrow } from "./filters";
+import { DOM } from "./dom"
+const axios = require('axios')
+// export const requestURLMovie = {
+//     url: `http://127.0.0.1:3001/movies?`
+// }
 export async function addMovie() {
-    await fetch(constants.requestURLMovie)
-        .then(response => response.json())
-        .then((data) => data.forEach((obj) => constants.movies.push(obj)))
-        .then(() => creatFirstPage(constants.movies, variable.skip))
-        .then(() => variable.numbersPage = Math.ceil(constants.movies.length / constants.movieOnPage))
-        .catch(error => console.log(error))
+    // console.log(requestURLMovie)
+    constants.movies = []
+    const movieArrayResult = await axios.get(requestURLMovie.url + "page=" + variable.currentPage)
+    // console.log(movieArrayResult.data)
+    if (movieArrayResult.data === 'Not found') {
+        notFound(movieArrayResult.data)
+        return
+    } else {
+        render(movieArrayResult.data)
+    }
+}
+function notFound(result) {
+    console.log(result)
+    DOM.searchInput.value = "";
+    DOM.buttPos.classList.add('hidden')
+    DOM.notFoundAlert.classList.remove('hidden')
+}
+function render(movieArrayResult) {
+    DOM.searchInput.value = "";
+    DOM.notFoundAlert.classList.add('hidden')
+    DOM.buttPos.classList.remove('hidden')
+    movieArrayResult.movies.forEach((obj) => constants.movies.push(obj))
+    console.log(constants.movies)
+    variable.totalCount = movieArrayResult.totalCount.count
+    creatFirstPage(constants.movies)
 }
 
-export function creatFirstPage(movies: movie[], skip: number): void {
-    domElement.movieContainer.innerHTML = "";
-    variable.currentPage = Math.ceil(movies.length / 5);
-    
-    if ((<movie[]>movies).length && !skip) {
-        hideArrow(domElement.BtnLeft);
-        (<HTMLInputElement>domElement.BtnRight).classList.remove('hiddenArrow');
-        movies.forEach((item, index) => {
-            if (index < 5) {
-                const imageSrc = `${constants.URLIMG}${item.backdrop_path}`
-                variable.htmlElems.push(constants.URLIMG + movies[index]?.backdrop_path);
-                domElement.movieContainer.innerHTML += createPost(item, imageSrc);
-            }
-        })
-    } else if (skip) {
-        (<HTMLInputElement>domElement.BtnLeft).classList.remove('hiddenArrow');     
-        const skipArr = movies.slice(skip, skip + 5)
-        skipArr.forEach(elem => {
-            const imageSrc = `${constants.URLIMG}${elem.backdrop_path}`
-            variable.htmlElems.push(constants.URLIMG + elem?.backdrop_path);
-            domElement.movieContainer.innerHTML += createPost(elem, imageSrc);
-        });
-    }
+export function creatFirstPage(movies: movie[]): void {
+    console.log(variable.totalCount)
+    DOM.movieContainer.innerHTML = "";
+    movies.forEach((item, index) => {
+        const imageSrc = `${constants.URLIMG}${item.backdrop_path}`
+        variable.htmlElems.push(constants.URLIMG + movies[index]?.backdrop_path);
+        DOM.movieContainer.innerHTML += createPost(item, imageSrc);
+    })
 }
 function createPost(film: movie, imageSrc: string) {
     return `
@@ -48,42 +54,35 @@ function createPost(film: movie, imageSrc: string) {
     `
 }
 
-export function scrollLeft(movies: movie[]): void {
-    if (variable.skip === 0) {
-        hideArrow(document.querySelector('.btnRight'));
-        console.log(variable.skip)
+export function scrollLeft(): void {
+    if (variable.currentPage == 1) {
         return
-    }
-    else if (movies.length >= 5 && variable.skip !== 0) {
-        variable.skip = variable.skip - 5
-    }
-    if (variable.skip !== movies.length) {
-        creatFirstPage(movies, variable.skip)
-    }
-    if (variable.skip + 5 < movies.length) {
-        (<HTMLInputElement>domElement.BtnRight).classList.remove('hiddenArrow');
+    } else {
+        variable.currentPage--
+        (<HTMLInputElement>DOM.BtnRight).classList.remove('hiddenArrow');
+        if (variable.currentPage == 1) {
+            (<HTMLInputElement>DOM.BtnLeft).classList.add('hiddenArrow');
+        }
+        console.log(variable.currentPage)
+        addMovie()
     }
 }
 
-export function scrollRight(movies: movie[]): void {
-
-    if (variable.skip >= movies.length - 5) {
-        console.log(variable.skip)
+export function scrollRight(): void {
+    if (variable.currentPage * 5 > variable.totalCount) {
+        (<HTMLInputElement>DOM.BtnRight).classList.add('hiddenArrow');
+        console.log(variable.currentPage)
         return
-    }
-    else if (movies.length >= 5 && variable.skip !== movies.length) {
-        variable.skip = variable.skip + 5
-        console.log(variable.skip)
-    }
-    if (variable.skip !== movies.length) {
-        console.log(variable.skip)
-        creatFirstPage(movies, variable.skip)
-    }
-    if (variable.skip + 5 >= movies.length) {
-        hideArrow(domElement.BtnRight)
+    } else {
+        variable.currentPage++
+        if (variable.currentPage * 5 > variable.totalCount) {
+            (<HTMLInputElement>DOM.BtnRight).classList.add('hiddenArrow');
+        }
+        (<HTMLInputElement>DOM.BtnLeft).classList.remove('hiddenArrow');
+        console.log(variable.currentPage)
+        addMovie()
     }
 }
-
 export function getCurrentFilmId(event: MouseEvent) {
     const target = event.target;
     if ((<HTMLElement>target).className === "poster" || (<HTMLElement>target).className === "descriptionWrapper") {
