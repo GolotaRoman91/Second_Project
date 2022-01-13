@@ -2,8 +2,8 @@ import { DOM } from './dom';
 import { genresType, language } from './types'
 const axios = require('axios')
 export async function fillFiltersGenre(): Promise<void> {
-    const genreArray = await axios.get(`http://127.0.0.1:3001/genres`)
-    const languageArray = await axios.get(`http://127.0.0.1:3001/languages`)
+    const genreArray = await axios.get(`http://127.0.0.1:3001/genres?` + document.cookie)
+    const languageArray = await axios.get(`http://127.0.0.1:3001/languages?` + document.cookie)
     createGenresBlock(genreArray.data)
     createlanguageBlock(languageArray.data)
 }
