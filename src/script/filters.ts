@@ -21,11 +21,12 @@ export async function getFiltredFilms() {
         query += `budget_max=${DOM.maxBudget.dataset.value}&`
     }
     requestURLMovie.url = query
-    variable.currentPage = 1
+    variable.currentPage = 1;
+    (<HTMLInputElement>DOM.BtnLeft).classList.add('hiddenArrow');
+    addMovie()
     DOM.notFoundAlert.classList.add('hidden')
     DOM.buttPos.classList.remove('hidden')
     DOM.filter.classList.toggle('hidden');
-    addMovie()
 }
 export const showFilters = (): void => {
     DOM.containerFilter.style.display = 'block';
@@ -67,6 +68,7 @@ export const resetFilter = (): void => {
     constants.filteredFilms = [];
     (<HTMLInputElement>document.querySelector('.handle.left')).dataset.value = '0';
     (<HTMLInputElement>document.querySelector('.handle.right')).dataset.value = '300000000';
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     (<HTMLInputElement>document.querySelector('.dual-range')).style = '--x-1:-9.34375px; --x-2:500px';
     clearFiltersGenres();
