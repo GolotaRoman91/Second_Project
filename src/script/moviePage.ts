@@ -39,7 +39,7 @@ function fillJustWatch(justWatchData) {
         </div>`;
     });
 }
-function setGenresForMovie(genres: genresType[], genres_ids: any[]): string {
+function setGenresForMovie(genres: genresType[], genres_ids: unknown[]): string {
     genres_ids = [...new Set(genres_ids)];
     let stringGenres = '';
     const filteredGeners = genres.filter(el => genres_ids.includes(el.id));
