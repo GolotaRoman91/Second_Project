@@ -1,8 +1,6 @@
 import { DOM } from './dom';
 import { constants, requestURLMovie, filterData, variable } from './constans';
 import { addMovie } from './showMovie';
-// import { movie } from './types';
-// const axios = require('axios')
 export async function getFiltredFilms() {
     let query = `http://127.0.0.1:3001/movies?`
     if (DOM.selectLanguage.value !== "All") {
@@ -50,12 +48,12 @@ export function changeColorGenres(evt: MouseEvent) {
         target.classList.toggle('filmGenresActiv');
     }
 }
-export function closeFilter(evt) {
-    if (evt.target.className === 'filter') {
+export function closeFilter(evt: Event): void {
+    if ((<HTMLElement>evt.target).className === 'filter') {
         openCloseFilters()
     }
 }
-export function hideArrow(arrow) {
+export function hideArrow(arrow: HTMLElement): void {
     arrow.classList.add('hiddenArrow');
 }
 export const resetFilter = (): void => {

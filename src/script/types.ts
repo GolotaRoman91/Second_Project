@@ -31,8 +31,25 @@ export type movie = {
     tagline: string,
     title: string
 }
+export type movieResponse = {
+    backdrop_path: string,
+    original_title: string,
+    original_language: string,
+    release_date: string,
+    movie_rate: string,
+    adult: boolean,
+    budget: string,
+    popularity: string,
+    overview: string,
+    title: string,
+    genres: string,
+    trailer: string,
+}
 
 export type genresType = {
     id: number,
     name: string
+}
+export type language = {
+    original_language: string
 }

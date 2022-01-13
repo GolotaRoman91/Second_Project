@@ -6,7 +6,7 @@ require('../image/bg.jpg');
 require('../image/defoultBackgroundMainPage.png');
 import 'regenerator-runtime/runtime';
 import { constants } from './constans';
-import { genresType } from './types';
+import { genresType, movieResponse } from './types';
 import { loader } from './loader';
 import { DOM } from './dom';
 const axios = require('axios').default;
@@ -81,20 +81,7 @@ function sliceDate(release_date: string | string[]): string | string[] {
     return release_date.slice(0, 10);
 }
 
-function renderMovieData(movie: {
-    backdrop_path: string;
-    original_title: string;
-    original_language: string;
-    release_date: string;
-    movie_rate: string;
-    adult: boolean;
-    budget: string;
-    popularity: string;
-    overview: string;
-    title: string;
-    genres: string;
-    trailer: string;
-}): void {
+function renderMovieData(movie: movieResponse): void {
     DOM.poster.src = `${constants.URLIMG}${movie.backdrop_path}`;
     DOM.trailer.setAttribute('src', `https://www.youtube.com/embed/${movie.trailer}`);
     setData(movie.title, DOM.mainPageTitle);
@@ -108,7 +95,7 @@ function renderMovieData(movie: {
     setData(movie.title, DOM.title);
     setData(movie.genres, DOM.filmGenres);
 }
-function getCurrentJustWatchFilmId(event) {
+function getCurrentJustWatchFilmId(event: Event): void {
     const target = event.target;
     if ((<HTMLElement>target).className === 'posterJustWatch') {
         const currentFilmId = (<HTMLElement>target).parentElement.id;
@@ -117,7 +104,7 @@ function getCurrentJustWatchFilmId(event) {
         return;
     }
 }
-export function openJustMainPage(currentFilmId) {
+export function openJustMainPage(currentFilmId: string): void {
     window.open(`./moviePage.html#${currentFilmId}`);
 }
 DOM.justWatch.addEventListener('click', getCurrentJustWatchFilmId);
