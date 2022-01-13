@@ -3,7 +3,7 @@ import { constants } from './constans';
 import { domElement } from './constans';
 import { filterData } from './constans';
 import { variable } from './constans';
-import { creatFirstPage } from './showMovie';
+import { creatFirstPage, requestURLMovie } from './showMovie';
 import { movie } from './types';
 const axios = require('axios')
 
@@ -27,19 +27,24 @@ export async function getFiltredFilms() {
     if (DOM.maxBudget.dataset.value) {
         query += `budget_max=${DOM.maxBudget.dataset.value}&`
     }
-    const result = await axios.get(query)
-    console.log(result)
-    constants.filteredFilms = result.data
-    console.log(constants.filteredFilms)
-    if (result.data === 'Not found') {
-        DOM.buttPos.classList.add('hidden')
-        DOM.notFoundAlert.classList.remove('hidden')
-    } else {
-        DOM.notFoundAlert.classList.add('hidden')
-        DOM.buttPos.classList.remove('hidden')
-        variable.skip = 0;
-        creatFirstPage(constants.filteredFilms, 0)
-    }
+    requestURLMovie.url = query
+
+    // const result = await axios.get(query)
+    // console.log(result)
+    // constants.movies = []
+    // result.data.movies.forEach((obj) => constants.movies.push(obj))
+    // constants.filteredFilms = result.data.movies
+    // variable.totalCount = result.data.totalCount.count
+    // console.log(constants.filteredFilms)
+    // if (constants.movies === []) {
+    //     DOM.buttPos.classList.add('hidden')
+    //     DOM.notFoundAlert.classList.remove('hidden')
+    // } else {
+    DOM.notFoundAlert.classList.add('hidden')
+    DOM.buttPos.classList.remove('hidden')
+    variable.skip = 0;
+    //creatFirstPage(constants.movies)
+    // }
     DOM.filter.classList.toggle('hidden');
 }
 
@@ -174,7 +179,7 @@ export function closeFilter(evt) {
     }
 }
 
-export function hideArrow (arrow) {
+export function hideArrow(arrow) {
     arrow.classList.add('hiddenArrow');
 }
 
@@ -192,7 +197,7 @@ export const resetFilter = (): void => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     (<HTMLInputElement>document.querySelector('.dual-range')).style = '--x-1:-9.34375px; --x-2:500px';
-    creatFirstPage(constants.movies, 0);
+    // creatFirstPage(constants.movies);
     // domElement.containerFilter.style.display = 'none';
     // DOM.filter.classList.toggle('hidden');
     clearFiltersGenres();

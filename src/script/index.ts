@@ -10,7 +10,7 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 window.addEventListener('load', loader);
 import { DOM } from './dom';
-import { domElement, constants } from './constans';
+import { domElement, variable } from './constans';
 import { loader } from './loader';
 import { signIn, modal, toSignIn, toSignUp, signOut } from './autorization';
 import { addMovie, getCurrentFilmId, scrollLeft, scrollRight } from './showMovie';
@@ -48,5 +48,5 @@ DOM.filter.addEventListener('click', closeFilter);
 DOM.btnSearch.addEventListener('click', searchByTitle)
 domElement.movieContainer.addEventListener('click', getCurrentFilmId);
 // DOM.cartJustWatchFilm.addEventListener('click', getCurrentJustWatchFilmId)
-domElement.BtnLeft.addEventListener('click', () => scrollLeft(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
-domElement.BtnRight.addEventListener('click', () => scrollRight(constants.filteredFilms.length ? constants.filteredFilms : constants.movies));
+domElement.BtnLeft.addEventListener('click', scrollLeft);
+domElement.BtnRight.addEventListener('click', scrollRight);

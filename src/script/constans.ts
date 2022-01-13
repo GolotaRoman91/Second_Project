@@ -31,6 +31,7 @@ export const domElement = {
 };
 
 export const variable = {
+    totalCount: 0,
     htmlElems: [],
     currentPage: 1,
     numbersPage: 0,
