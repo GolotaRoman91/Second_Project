@@ -300,6 +300,14 @@ main {
   pointer-events: none;
   visibility: hidden;
 }
+.player404{
+  display: none;
+}
+.image404{
+  width: 600px;
+  height: 400px;
+  border-radius: 20px;
+}
 
 
 /* .descriptionWrapperShow {

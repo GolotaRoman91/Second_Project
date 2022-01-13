@@ -67,4 +67,9 @@ export const DOM = {
     containerFilter: document.querySelector('.containerFilter') as HTMLElement,
     btnFilterFilms: document.querySelector('.btnFilterFilms') as HTMLElement,
     btnResetSettings: document.querySelector('.btnResetSettings') as HTMLElement,
+<<<<<<< HEAD
 };
+=======
+    player404: document.querySelector('.player404') as HTMLAudioElement,
+}
+>>>>>>> 15bf6afd55bdd09586a83c2e92cde5b555191230

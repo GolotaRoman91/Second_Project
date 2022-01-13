@@ -9,13 +9,25 @@ export async function addMovie(): Promise<void> {
         notFound();
         return
     } else {
+<<<<<<< HEAD
         render(movieArrayResult.data);
+=======
+        DOM.player404.pause();
+        DOM.player404.currentTime = 0;
+        render(movieArrayResult.data)
+>>>>>>> 15bf6afd55bdd09586a83c2e92cde5b555191230
     }
 }
 function notFound(): void {
     DOM.searchInput.value = "";
+<<<<<<< HEAD
     DOM.buttPos.classList.add('hidden');
     DOM.notFoundAlert.classList.remove('hidden');
+=======
+    DOM.buttPos.classList.add('hidden')
+    DOM.notFoundAlert.classList.remove('hidden')
+    DOM.player404.play()
+>>>>>>> 15bf6afd55bdd09586a83c2e92cde5b555191230
 }
 function render(movieArrayResult): void {
     if (movieArrayResult.totalCount.count <= 5 || Math.ceil(movieArrayResult.totalCount.count / 5) <= variable.currentPage) {

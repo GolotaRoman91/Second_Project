@@ -76,9 +76,24 @@ module.exports = {
                             outputPath: './',
                             useRelativePath: true
                         }
-                    }
+                    },
+
                 ]
 
+            },
+            {
+                test: /\.mp3$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'sound/[name].[ext]',
+                            outputPath: './',
+                            useRelativePath: true
+                        }
+                    },
+
+                ]
             }
         ]
     },
