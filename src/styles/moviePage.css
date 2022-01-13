@@ -49,6 +49,7 @@ html {
     float: left;
     border-radius: 20px;
     width: 100%;
+    box-shadow: 0px 0px 16px 10px rgb(0 0 0 / 80%);
 }
 tr {
     line-height: 20px;
@@ -70,8 +71,8 @@ tr {
 .movie_page {
     margin-bottom: 50px;
     margin-top: 50px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 100px;
+    margin-right: 100px;
     background-color: rgba(20, 20, 20, 0.897);
     color: #ffffffce;
     padding: 50px;
@@ -149,10 +150,10 @@ tr {
     align-items: center;
     margin: 0 0 15px 0;
     position: relative;
+    transition: 0.6s;
 }
 
 .posterJustWatch {
-    width: 120%;
     height: 120px;
     object-fit: cover;
     transition: 0.5s;
@@ -163,7 +164,7 @@ tr {
 }
 
 .posterJustWatch:hover {
-    transform: scale(1.2);
+    /* transform: scale(1.1); */
     box-shadow: 0 0 5px 8px #00000027;
 }
 
@@ -173,10 +174,14 @@ tr {
     color: #ffffffe7;
     font-weight: 700;
 }
-
+.cartJustWatchFilm:hover{
+    transform: translateX(-45%);
+    /* left: -70px; */
+    /* align-items: flex-end; */
+}
 .cartJustWatchFilm:hover .descriptionWrapper {
     opacity: 1;
-    transform: translateX(115%);
+    transform: translateX(122%);
 }
 
 .descriptionWrapper {
@@ -184,7 +189,7 @@ tr {
     height: 100%;
     position: absolute;
     /* left: 250px; */
-    transition: 0.5s;
+    transition: 0.6s;
     opacity: 0;
     padding: 10px;
     color: #ffffff;
@@ -201,4 +206,8 @@ tr {
     color: #ffffffe7;
     width: 120px;
     display: inline-block;
+}
+.trailer,
+.playerBlock {
+    border-radius: 20px;
 }
