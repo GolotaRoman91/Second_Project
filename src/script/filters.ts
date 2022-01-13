@@ -5,7 +5,7 @@ import { addMovie } from './showMovie';
 // const axios = require('axios')
 export async function getFiltredFilms() {
     let query = `http://127.0.0.1:3001/movies?`
-    if (DOM.selectLanguage.value !== "") {
+    if (DOM.selectLanguage.value !== "All") {
         query += `languages=${DOM.selectLanguage.value}&`
     }
     if (filterData.genre_ids !== null) {

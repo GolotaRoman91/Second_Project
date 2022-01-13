@@ -25,13 +25,13 @@ function notFound(result) {
 }
 function render(movieArrayResult) {
     // console.log('Pages ' + movieArrayResult.totalCount.count / 5);
-    if (movieArrayResult.totalCount.count <= 5 || Math.floor(movieArrayResult.totalCount.count / 5) <= variable.currentPage) {
+    if (movieArrayResult.totalCount.count <= 5 || Math.ceil(movieArrayResult.totalCount.count / 5) <= variable.currentPage) {
         (<HTMLInputElement>DOM.BtnRight).classList.add('hiddenArrow')
-    } 
+    }
     else if (movieArrayResult.totalCount.count > 5) {
         (<HTMLInputElement>DOM.BtnRight).classList.remove('hiddenArrow')
     }
-    
+
     // (<HTMLInputElement>DOM.BtnRight).classList.remove('hiddenArrow');
     DOM.searchInput.value = "";
     DOM.notFoundAlert.classList.add('hidden')
@@ -86,7 +86,7 @@ export function scrollRight(): void {
     } else {
         // console.log('right ++ ');
         // console.log('Total ' + variable.totalCount);
-        
+
         variable.currentPage++
         if (variable.currentPage * 5 > variable.totalCount) {
             (<HTMLInputElement>DOM.BtnRight).classList.add('hiddenArrow');
