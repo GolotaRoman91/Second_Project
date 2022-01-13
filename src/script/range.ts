@@ -27,7 +27,7 @@ export class dualRangeSlider {
         (<HTMLElement>this.handles[1]).dataset.value = this.range.dataset.max;
     }
 
-    startMoveTouch(this: any, e: { target: { getBoundingClientRect: () => any; }; touches: { clientX: number; }[]; }) {
+    startMoveTouch(this, e: { target: { getBoundingClientRect: () => any }; touches: { clientX: number }[] }) {
         const handleRect = e.target.getBoundingClientRect();
         this.startPos = e.touches[0].clientX - handleRect.x;
         this.activeHandle = e.target;
@@ -35,14 +35,14 @@ export class dualRangeSlider {
         window.addEventListener('touchmove', this.moveTouchListener);
     }
 
-    startMove(this: any, e: { offsetX: any; target: any; }) {
+    startMove(this, e: { offsetX: number; target: number }) {
         this.startPos = e.offsetX;
         this.activeHandle = e.target;
         this.moveListener = this.move.bind(this);
         window.addEventListener('mousemove', this.moveListener);
     }
 
-    moveTouch(e: { touches: { clientX: any; }[]; }) {
+    moveTouch(e: { touches: { clientX: number }[] }) {
         this.move({ clientX: e.touches[0].clientX });
     }
 
@@ -65,11 +65,11 @@ export class dualRangeSlider {
         this.range.style.setProperty(property, newX + 'px');
     }
 
-    calcHandleValue(this: any, percentage: number) {
+    calcHandleValue(this, percentage: number) {
         return Math.round(percentage * (this.max - this.min) + this.min);
     }
 
-    stopMove(this: any) {
+    stopMove(this) {
         window.removeEventListener('mousemove', this.moveListener);
         window.removeEventListener('touchmove', this.moveTouchListener);
     }
