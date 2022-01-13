@@ -9,7 +9,7 @@ export async function addMovie() {
     // console.log(requestURLMovie)
     constants.movies = []
     const movieArrayResult = await axios.get(requestURLMovie.url + "page=" + variable.currentPage)
-    // console.log(movieArrayResult.data)
+    console.log(movieArrayResult.data)
     if (movieArrayResult.data === 'Not found') {
         notFound(movieArrayResult.data)
         return

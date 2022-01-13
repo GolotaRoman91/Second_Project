@@ -26,7 +26,6 @@ export async function getFiltredFilms() {
     addMovie()
     DOM.notFoundAlert.classList.add('hidden')
     DOM.buttPos.classList.remove('hidden')
-    variable.skip = 0;
     DOM.filter.classList.toggle('hidden');
 }
 export const showFilters = (): void => {
