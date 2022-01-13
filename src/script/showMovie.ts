@@ -1,47 +1,46 @@
-import { constants, requestURLMovie, variable } from "./constans";
-import { movie } from "./types";
-import { DOM } from "./dom"
+import { constants, variable, URL } from './constans';
+import { movie } from './types';
+import { DOM } from './dom';
 const axios = require('axios');
 export async function addMovie(): Promise<void> {
-    constants.movies = []
-    const movieArrayResult = await axios.get(requestURLMovie.url + "page=" + variable.currentPage + "&" + document.cookie)
+    constants.movies = [];
+    const movieArrayResult = await axios.get(URL.movies + 'page=' + variable.currentPage + '&' + document.cookie);
     if (movieArrayResult.data === 'Not found') {
         notFound();
-        return
+        return;
     } else {
         DOM.player404.pause();
         DOM.player404.currentTime = 0;
-        render(movieArrayResult.data)
+        render(movieArrayResult.data);
     }
 }
 function notFound(): void {
-    DOM.searchInput.value = "";
-    DOM.buttPos.classList.add('hidden')
-    DOM.notFoundAlert.classList.remove('hidden')
-    DOM.player404.play()
+    DOM.searchInput.value = '';
+    DOM.buttPos.classList.add('hidden');
+    DOM.notFoundAlert.classList.remove('hidden');
+    DOM.player404.play();
 }
 function render(movieArrayResult): void {
     if (movieArrayResult.totalCount.count <= 5 || Math.ceil(movieArrayResult.totalCount.count / 5) <= variable.currentPage) {
         DOM.BtnRight.classList.add('hiddenArrow');
-    }
-    else if (movieArrayResult.totalCount.count > 5) {
+    } else if (movieArrayResult.totalCount.count > 5) {
         DOM.BtnRight.classList.remove('hiddenArrow');
     }
-    DOM.searchInput.value = "";
+    DOM.searchInput.value = '';
     DOM.notFoundAlert.classList.add('hidden');
     DOM.buttPos.classList.remove('hidden');
-    movieArrayResult.movies.forEach((obj) => constants.movies.push(obj));
+    movieArrayResult.movies.forEach(obj => constants.movies.push(obj));
     variable.totalCount = movieArrayResult.totalCount.count;
     creatFirstPage(constants.movies);
 }
 
 export function creatFirstPage(movies: movie[]): void {
-    DOM.movieContainer.innerHTML = "";
+    DOM.movieContainer.innerHTML = '';
     movies.forEach((item, index) => {
-        const imageSrc = `${constants.URLIMG}${item.backdrop_path}`
-        variable.htmlElems.push(constants.URLIMG + movies[index]?.backdrop_path);
+        const imageSrc = `${URL.image}${item.backdrop_path}`;
+        variable.htmlElems.push(URL.image + movies[index]?.backdrop_path);
         DOM.movieContainer.innerHTML += createPost(item, imageSrc);
-    })
+    });
 }
 function createPost(film: movie, imageSrc: string) {
     return `
@@ -52,13 +51,13 @@ function createPost(film: movie, imageSrc: string) {
                 ${film.tagline}
             </div>
          </div>
-    `
+    `;
 }
 export function scrollLeft(): void {
     if (variable.currentPage == 1) {
-        return
+        return;
     } else {
-        variable.currentPage--
+        variable.currentPage--;
         DOM.BtnRight.classList.remove('hiddenArrow');
         if (variable.currentPage == 1) {
             DOM.BtnLeft.classList.add('hiddenArrow');
@@ -70,9 +69,9 @@ export function scrollLeft(): void {
 export function scrollRight(): void {
     if (variable.currentPage * 5 >= variable.totalCount) {
         (<HTMLInputElement>DOM.BtnRight).classList.add('hiddenArrow');
-        return
+        return;
     } else {
-        variable.currentPage++
+        variable.currentPage++;
         if (variable.currentPage * 5 > variable.totalCount) {
             DOM.BtnRight.classList.add('hiddenArrow');
         }
@@ -82,11 +81,11 @@ export function scrollRight(): void {
 }
 export function getCurrentFilmId(event: MouseEvent): void {
     const target = event.target;
-    if ((<HTMLElement>target).className === "poster" || (<HTMLElement>target).className === "descriptionWrapper") {
+    if ((<HTMLElement>target).className === 'poster' || (<HTMLElement>target).className === 'descriptionWrapper') {
         const currentFilmId = (<HTMLElement>target).parentElement.id;
         openMainPage(currentFilmId);
     } else {
-        return
+        return;
     }
 }
 export function openMainPage(currentFilmId: string): void {

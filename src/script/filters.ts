@@ -1,27 +1,27 @@
 import { DOM } from './dom';
-import { constants, requestURLMovie, filterData, variable } from './constans';
+import { constants, URL, filterData, variable } from './constans';
 import { addMovie } from './showMovie';
 export async function getFiltredFilms() {
-    let query = `http://127.0.0.1:3001/movies?`
-    if (DOM.selectLanguage.value !== "All") {
-        query += `languages=${DOM.selectLanguage.value}&`
+    let query = URL.movies;
+    if (DOM.selectLanguage.value !== 'All') {
+        query += `languages=${DOM.selectLanguage.value}&`;
     }
     if (filterData.genre_ids !== null) {
-        query += `genre_id=${filterData.genre_ids}&`
+        query += `genre_id=${filterData.genre_ids}&`;
     }
     if (DOM.minBudget.dataset.value) {
-        query += `budget_min=${DOM.minBudget.dataset.value}&`
+        query += `budget_min=${DOM.minBudget.dataset.value}&`;
     }
     if (DOM.startData.value && DOM.endData.value) {
-        query += `minDate=${DOM.startData.value}&maxDate=${DOM.endData.value}&`
+        query += `minDate=${DOM.startData.value}&maxDate=${DOM.endData.value}&`;
     }
     if (DOM.maxBudget.dataset.value) {
-        query += `budget_max=${DOM.maxBudget.dataset.value}&`
+        query += `budget_max=${DOM.maxBudget.dataset.value}&`;
     }
-    requestURLMovie.url = query;
+    URL.movies = query;
     variable.currentPage = 1;
     (<HTMLInputElement>DOM.BtnLeft).classList.add('hiddenArrow');
-    addMovie()
+    addMovie();
     DOM.notFoundAlert.classList.add('hidden');
     DOM.buttPos.classList.remove('hidden');
     DOM.filter.classList.toggle('hidden');
@@ -41,7 +41,7 @@ export function openCloseFilters() {
 }
 export function changeColorGenres(evt: MouseEvent) {
     const target = evt.target as HTMLButtonElement;
-    clearFiltersGenres()
+    clearFiltersGenres();
     if ((<HTMLElement>evt.target).className !== 'filmsGenres') {
         return;
     } else {
@@ -50,7 +50,7 @@ export function changeColorGenres(evt: MouseEvent) {
 }
 export function closeFilter(evt: Event): void {
     if ((<HTMLElement>evt.target).className === 'filter') {
-        openCloseFilters()
+        openCloseFilters();
     }
 }
 export function hideArrow(arrow: HTMLElement): void {

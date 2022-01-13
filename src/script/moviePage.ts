@@ -5,7 +5,7 @@ import '../styles/header.css';
 require('../image/bg.jpg');
 require('../image/defoultBackgroundMainPage.png');
 import 'regenerator-runtime/runtime';
-import { constants } from './constans';
+import { constants, URL } from './constans';
 import { genresType, movieResponse } from './types';
 import { loader } from './loader';
 import { DOM } from './dom';
@@ -15,7 +15,7 @@ loader();
 
 const getGenres = async (genres_ids: number[]): Promise<string> => {
     try {
-        const response = await axios.get('http://127.0.0.1:3001/genres?' + document.cookie);
+        const response = await axios.get(URL.genres + document.cookie);
         const genres = response.data;
         setJustWatch(genres_ids);
         return setGenresForMovie(genres, genres_ids);
@@ -24,14 +24,14 @@ const getGenres = async (genres_ids: number[]): Promise<string> => {
     }
 };
 async function setJustWatch(genreId) {
-    const justWatch = await axios.get(`http://127.0.0.1:3001/movies?id=${constants.idMovie}&genre_id=${genreId[0]}&perPage=3&` + document.cookie);
+    const justWatch = await axios.get(URL.movies + `id=${constants.idMovie}&genre_id=${genreId[0]}&perPage=3&` + document.cookie);
     fillJustWatch(justWatch.data.movies);
 }
 function fillJustWatch(justWatchData) {
     justWatchData.forEach(element => {
         DOM.justWatch.innerHTML += `
         <div class="cartJustWatchFilm" id="${element.id}">
-           <img src=${constants.URLIMG}${element.backdrop_path} class="posterJustWatch">
+           <img src=${URL.image}${element.backdrop_path} class="posterJustWatch">
             <div class="descriptionWrapper">
                 <span class="cartFilmTitle"> ${element.title}</span></br>
                 <span class="cartFilmTagline"> ${element.tagline}</span>
@@ -51,7 +51,7 @@ function setGenresForMovie(genres: genresType[], genres_ids: any[]): string {
 
 const getMovie = async (): Promise<void> => {
     try {
-        const response = await axios.get(`http://127.0.0.1:3001/movies/id?id=${constants.idMovie}&` + document.cookie);
+        const response = await axios.get(URL.moviesId + `?id=${constants.idMovie}&` + document.cookie);
         const movie = response.data[0];
         movie.genres = await getGenres(movie.genres);
         renderMovieData(movie);
@@ -78,7 +78,7 @@ function sliceDate(release_date: string | string[]): string | string[] {
 }
 
 function renderMovieData(movie: movieResponse): void {
-    DOM.poster.src = `${constants.URLIMG}${movie.backdrop_path}`;
+    DOM.poster.src = `${URL.image}${movie.backdrop_path}`;
     DOM.trailer.setAttribute('src', `https://www.youtube.com/embed/${movie.trailer}`);
     setData(movie.title, DOM.mainPageTitle);
     setData(movie.original_title, DOM.originalTitle);

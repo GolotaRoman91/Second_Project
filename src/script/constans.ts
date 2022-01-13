@@ -1,14 +1,12 @@
-import { movie } from "./types";
+import { movie } from './types';
 export const constants = {
-    URLIMG: 'https://image.tmdb.org/t/p/original',
-    requestURLMovie: 'http://127.0.0.1:3001/movies?page=1&perPage=100',
     movies: [] as movie[],
     movieOnPage: 5,
     filteredFilms: [],
     adultFilms: [],
     budgetFilms: [],
     filmByLang: [],
-    idMovie: document.URL.split('#')[1]
+    idMovie: document.URL.split('#')[1],
 };
 export const variable = {
     totalCount: 0,
@@ -19,7 +17,7 @@ export const variable = {
     minBudget: 0,
     maxBudget: 0,
     skip: 0,
-    limit: 5
+    limit: 5,
 };
 export const filterData = {
     genre_ids: null,
@@ -29,6 +27,13 @@ export const filterData = {
     budget: null,
     adult: null,
 };
-export const requestURLMovie = {
-    url: `http://127.0.0.1:3001/movies?`
+
+export const URL = {
+    image: 'https://image.tmdb.org/t/p/original',
+    movies: 'http://127.0.0.1:3001/movies?',
+    moviesId: 'http://127.0.0.1:3001/movies/id',
+    genres: 'http://127.0.0.1:3001/genres?',
+    language: 'http://127.0.0.1:3001/languages?',
+    requestURl: 'http://127.0.0.1:3001/sign_up',
+    requestURlsignIn: 'http://127.0.0.1:3001/sign_in',
 };

@@ -4,7 +4,7 @@ import '../styles/footer.css';
 import '../styles/filter.css';
 import '../styles/cartfilms.css';
 import '../styles/header.css';
-import '../styles/search.css'
+import '../styles/search.css';
 import '../styles/range.css';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -24,9 +24,9 @@ require('../image/Logo.png');
 require('../image/favicon.png');
 require('../image/search.png');
 require('../image/movies.png');
-require('../image/mfnzwt.gif')
-require('../sound/soundNotFound.mp3')
-checkToken()
+require('../image/mfnzwt.gif');
+require('../sound/soundNotFound.mp3');
+checkToken();
 window.addEventListener('DOMContentLoaded', () => {
     new dualRangeSlider(document.querySelector('.dual-range') as HTMLInputElement);
 });
@@ -42,7 +42,7 @@ DOM.nav.addEventListener('click', getFilms);
 DOM.btnFilterFilms.addEventListener('click', showFilters);
 DOM.btnFilter.addEventListener('click', getFiltredFilms);
 DOM.filter.addEventListener('click', closeFilter);
-DOM.btnSearch.addEventListener('click', searchByTitle)
+DOM.btnSearch.addEventListener('click', searchByTitle);
 DOM.movieContainer.addEventListener('click', getCurrentFilmId);
 DOM.BtnLeft.addEventListener('click', scrollLeft);
 DOM.BtnRight.addEventListener('click', scrollRight);

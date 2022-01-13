@@ -74,11 +74,11 @@
 @keyframes chooseGenres {
     from {
         /* color:#ff8b48; */
-        text-shadow: 0 0 5px #f5f0f0, 0 0 10px #101010, 0 0 15px #101010, 0 0 20px #101010, 0 0 25px #57aeff, 0 0 30px #57aeff, 0 0 35px #57aeff;
+        text-shadow: 0 0 3px #f5f0f0, 0 0 6px #57aeff;
     }
     to {
         /* color:#57aeff; */
-        text-shadow: 0 0 10px #f5f0f0, 0 0 15px #ff8b48, 0 0 20px #ff8b48, 0 0 25px #ff8b48, 0 0 30px #ff8b48, 0 0 35px #ff8b48, 0 0 40px #ff8b48;
+        text-shadow: 0 0 5px #f5f0f0, 0 0 10px #ffae808c;
     }
 }
 
