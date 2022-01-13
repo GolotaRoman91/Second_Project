@@ -11,7 +11,7 @@ import 'regenerator-runtime/runtime';
 window.addEventListener('load', loader);
 import { DOM } from './dom';
 import { loader } from './loader';
-import { signIn, modal, toSignIn, toSignUp, signOut } from './autorization';
+import { checkAuthorize, toSignIn, toSignUp, signOut, checkToken, modal } from './autorization';
 import { addMovie, getCurrentFilmId, scrollLeft, scrollRight } from './showMovie';
 import { resetFilter, openCloseFilters, changeColorGenres, showFilters, closeFilter, getFiltredFilms, getFilms } from './filters';
 import { dualRangeSlider } from './range';
@@ -25,13 +25,11 @@ require('../image/Logo.png');
 require('../image/favicon.png');
 require('../image/search.png');
 require('../image/movies.png');
-
+checkToken()
 window.addEventListener('DOMContentLoaded', () => {
     new dualRangeSlider(document.querySelector('.dual-range') as HTMLInputElement);
 });
-addMovie();
-fillFiltersGenre()
-DOM.signInButt.addEventListener('click', signIn);
+DOM.signInButt.addEventListener('click', checkAuthorize);
 DOM.signUpButt.addEventListener('click', modal);
 DOM.toSignIn.addEventListener('click', toSignIn);
 DOM.toSignUp.addEventListener('click', toSignUp);

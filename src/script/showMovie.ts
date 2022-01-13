@@ -2,10 +2,9 @@ import { constants, requestURLMovie, variable } from "./constans";
 import { movie, movieResponse } from "./types";
 import { DOM } from "./dom"
 const axios = require('axios')
-//+ "token="
 export async function addMovie(): Promise<void> {
     constants.movies = []
-    const movieArrayResult = await axios.get(requestURLMovie.url + "page=" + variable.currentPage)
+    const movieArrayResult = await axios.get(requestURLMovie.url + "page=" + variable.currentPage + "&" + document.cookie)
     console.log(movieArrayResult.data)
     if (movieArrayResult.data === 'Not found') {
         notFound()
