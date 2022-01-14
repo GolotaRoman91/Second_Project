@@ -13,8 +13,6 @@ export const DOM = {
     outputIn: document.querySelector('.outputIn') as HTMLLIElement,
     signUpButt: document.querySelector('.signUpButt') as HTMLButtonElement,
     signInButt: document.querySelector('.signInButt') as HTMLButtonElement,
-    requestURl: 'http://127.0.0.1:3001/sign_up',
-    requestURlsignIn: 'http://127.0.0.1:3001/sign_in',
     wrapIn: document.querySelector('.wrapIn') as HTMLLIElement,
     wrapUp: document.querySelector('.wrapUp') as HTMLLIElement,
     registr: document.querySelector('.registr') as HTMLLIElement,
@@ -68,6 +66,6 @@ export const DOM = {
     btnFilterFilms: document.querySelector('.btnFilterFilms') as HTMLElement,
     btnResetSettings: document.querySelector('.btnResetSettings') as HTMLElement,
     player404: document.querySelector('.player404') as HTMLAudioElement,
-    minCalendarData: (<HTMLInputElement>document.querySelector('#startData')),
-    maxCalendarData: (<HTMLInputElement>document.querySelector('#endData')),
+    minCalendarData: <HTMLInputElement>document.querySelector('#startData'),
+    maxCalendarData: <HTMLInputElement>document.querySelector('#endData'),
 };

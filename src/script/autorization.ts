@@ -4,13 +4,14 @@ import { bodySignUp } from './types';
 import { addMovie } from './showMovie';
 import { fillFiltersGenre } from './fiilFilters';
 import { DOM } from './dom';
+import { URL } from './constans';
 const axios = require('axios');
 
 export async function checkAuthorize(): Promise<void> {
     try {
         const {
             headers: { token: accessToken },
-        } = await axios.post(DOM.requestURlsignIn, {
+        } = await axios.post(URL.signIn, {
             login: DOM.username.value,
             password: DOM.userpass.value,
         });
@@ -49,7 +50,7 @@ export async function modal(): Promise<void> {
             first_name: DOM.firstname.value,
             last_name: DOM.surname.value,
         };
-        const data = await sendRequest('POST', DOM.requestURl, bodySignUp);
+        const data = await sendRequest('POST', URL.signUp, bodySignUp);
         checkResponse(data, bodySignUp);
     }
 }

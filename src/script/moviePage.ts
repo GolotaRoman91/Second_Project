@@ -9,6 +9,7 @@ import { constants, URL } from './constans';
 import { genresType, movieResponse } from './types';
 import { loader } from './loader';
 import { DOM } from './dom';
+import { elemRecomendedFilm } from './types';
 const axios = require('axios').default;
 
 loader();
@@ -23,11 +24,17 @@ const getGenres = async (genres_ids: number[]): Promise<string> => {
         console.error(error);
     }
 };
+
 async function setJustWatch(genreId) {
-    const justWatch = await axios.get(URL.movies + `id=${constants.idMovie}&genre_id=${genreId[0]}&perPage=3&` + document.cookie);
-    fillJustWatch(justWatch.data.movies);
+    try {
+        const justWatch = await axios.get(URL.movies + `id=${constants.idMovie}&genre_id=${genreId[0]}&perPage=3&` + document.cookie);
+        fillJustWatch(justWatch.data.movies);
+    } catch (error) {
+        console.error(error);
+    }
 }
-function fillJustWatch(justWatchData) {
+
+function fillJustWatch(justWatchData: Array<elemRecomendedFilm>) {
     justWatchData.forEach(element => {
         DOM.justWatch.innerHTML += `
         <div class="cartJustWatchFilm" id="${element.id}">

@@ -72,8 +72,8 @@ export const resetFilter = (): void => {
     (<HTMLInputElement>document.querySelector('.dual-range')).style = '--x-1:-9.34375px; --x-2:500px';
     clearFiltersGenres();
     (<HTMLInputElement>document.querySelector('#selectLanguage')).value = 'All';
-    DOM.minCalendarData.value =  DOM.minCalendarData.min;
-    DOM.maxCalendarData.value =  new Date().toLocaleDateString('sv-se');
+    DOM.minCalendarData.value = DOM.minCalendarData.min;
+    DOM.maxCalendarData.value = new Date().toLocaleDateString('sv-se');
 };
 function clearFiltersGenres() {
     const genresList = Array.from(document.querySelectorAll('.filmsGenres'));

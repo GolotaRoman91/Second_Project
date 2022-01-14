@@ -31,10 +31,10 @@ export const filterData = {
 export const URL = {
     image: 'https://image.tmdb.org/t/p/original',
     movies: 'http://127.0.0.1:3001/movies?',
+    constMovies: `http://127.0.0.1:3001/movies?`,
     moviesId: 'http://127.0.0.1:3001/movies/id',
     genres: 'http://127.0.0.1:3001/genres?',
     language: 'http://127.0.0.1:3001/languages?',
-    requestURl: 'http://127.0.0.1:3001/sign_up',
-    requestURlsignIn: 'http://127.0.0.1:3001/sign_in',
-    constMovies: 'http://127.0.0.1:3001/movies?',
+    signUp: 'http://127.0.0.1:3001/sign_up',
+    signIn: 'http://127.0.0.1:3001/sign_in',
 };
