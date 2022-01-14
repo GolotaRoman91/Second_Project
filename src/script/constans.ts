@@ -36,4 +36,5 @@ export const URL = {
     language: 'http://127.0.0.1:3001/languages?',
     requestURl: 'http://127.0.0.1:3001/sign_up',
     requestURlsignIn: 'http://127.0.0.1:3001/sign_in',
+    constMovies: 'http://127.0.0.1:3001/movies?',
 };

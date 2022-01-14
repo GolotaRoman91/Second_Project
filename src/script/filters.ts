@@ -2,7 +2,7 @@ import { DOM } from './dom';
 import { constants, URL, filterData, variable } from './constans';
 import { addMovie } from './showMovie';
 export async function getFiltredFilms() {
-    let query = URL.movies;
+    let query = URL.constMovies;
     if (DOM.selectLanguage.value !== 'All') {
         query += `languages=${DOM.selectLanguage.value}&`;
     }
