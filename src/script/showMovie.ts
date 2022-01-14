@@ -3,16 +3,21 @@ import { movie } from './types';
 import { DOM } from './dom';
 const axios = require('axios');
 export async function addMovie(): Promise<void> {
-    constants.movies = [];
-    const movieArrayResult = await axios.get(URL.movies + 'page=' + variable.currentPage + '&' + document.cookie);
-    if (movieArrayResult.data === 'Not found') {
-        notFound();
-        return;
-    } else {
-        DOM.player404.pause();
-        DOM.player404.currentTime = 0;
-        render(movieArrayResult.data);
+    try {
+        constants.movies = [];
+        const movieArrayResult = await axios.get(URL.movies + 'page=' + variable.currentPage + '&' + document.cookie);
+        if (movieArrayResult.data === 'Not found') {
+            notFound();
+            return;
+        } else {
+            DOM.player404.pause();
+            DOM.player404.currentTime = 0;
+            render(movieArrayResult.data);
+        }
+    } catch (error) {
+        return
     }
+
 }
 function notFound(): void {
     DOM.searchInput.value = '';
@@ -26,6 +31,7 @@ function render(movieArrayResult): void {
     } else if (movieArrayResult.totalCount.count > 5) {
         DOM.BtnRight.classList.remove('hiddenArrow');
     }
+    DOM.searchBox.classList.remove('hidden');
     DOM.searchInput.value = '';
     DOM.notFoundAlert.classList.add('hidden');
     DOM.buttPos.classList.remove('hidden');

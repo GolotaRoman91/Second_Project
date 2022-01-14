@@ -68,4 +68,5 @@ export const DOM = {
     player404: document.querySelector('.player404') as HTMLAudioElement,
     minCalendarData: <HTMLInputElement>document.querySelector('#startData'),
     maxCalendarData: <HTMLInputElement>document.querySelector('#endData'),
+    searchBox: document.querySelector('.searchBox') as HTMLElement
 };

@@ -16,7 +16,6 @@ import { getCurrentFilmId, scrollLeft, scrollRight } from './showMovie';
 import { resetFilter, openCloseFilters, changeColorGenres, showFilters, closeFilter, getFiltredFilms, getFilms } from './filters';
 import { dualRangeSlider } from './range';
 import { searchByTitle } from './searchByTitle';
-
 require('../image/arrow_left.png');
 require('../image/arrow_right.png');
 require('../image/bg.jpg');

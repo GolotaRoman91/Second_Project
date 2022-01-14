@@ -56,29 +56,29 @@ export async function modal(): Promise<void> {
 }
 async function checkResponse(data: any, bodySignUp: bodySignUp): Promise<void> {
     switch (true) {
-    case data === 'Registration successful': {
-        DOM.wrapUp.classList.add('hidden'), DOM.wrapIn.classList.remove('hidden');
-        break;
-    }
-    case data === `User with login ${bodySignUp.login} already exist`: {
-        DOM.outputUp.innerHTML = data.message;
-        break;
-    }
-    case !!data.message.status: {
-        DOM.outputUp.innerHTML = data.message.data;
-        break;
-    }
-    case !!data.first_name: {
-        DOM.outputUp.innerHTML = data.first_name;
-        break;
-    }
-    case !!data.last_name: {
-        DOM.outputUp.innerHTML = data.last_name;
-        break;
-    }
-    default: {
-        DOM.outputUp.innerHTML = 'Invalid data';
-    }
+        case data === 'Registration successful': {
+            DOM.wrapUp.classList.add('hidden'), DOM.wrapIn.classList.remove('hidden');
+            break;
+        }
+        case data === `User with login ${bodySignUp.login} already exist`: {
+            DOM.outputUp.innerHTML = data.message;
+            break;
+        }
+        case !!data.message.status: {
+            DOM.outputUp.innerHTML = data.message.data;
+            break;
+        }
+        case !!data.first_name: {
+            DOM.outputUp.innerHTML = data.first_name;
+            break;
+        }
+        case !!data.last_name: {
+            DOM.outputUp.innerHTML = data.last_name;
+            break;
+        }
+        default: {
+            DOM.outputUp.innerHTML = 'Invalid data';
+        }
     }
 }
 export function checkToken(): void {
@@ -103,6 +103,7 @@ export function toSignIn(): void {
     DOM.wrapUp.classList.remove('hidden');
 }
 export function signOut(): void {
+    DOM.searchBox.classList.add('hidden')
     document.cookie.split(';').forEach(function (c) {
         document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/');
     });
