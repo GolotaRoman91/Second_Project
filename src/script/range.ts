@@ -7,7 +7,7 @@ export class dualRangeSlider {
     activeHandle: unknown;
     constructor(rangeElement: HTMLElement) {
         this.range = rangeElement;
-        this.min = 10000;
+        this.min = 0;
         this.max = 400000000;
         this.handles = [...this.range.querySelectorAll('.handle')];
         this.startPos = 0;
